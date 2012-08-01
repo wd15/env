@@ -119,7 +119,7 @@ unset mail
 ##    limit vmemoryuse $HALFMEMLIMIT kbytes
 ##endif
 
-export CDPATH='.:~:/users/wd15/work/matforge/fipy:/users/wd15/work/matforge/wd15:/users/wd15/work/matforge'
+export CDPATH='.:~:~/git:/users/wd15/work/matforge/fipy:/users/wd15/work/matforge/wd15:/users/wd15/work/matforge'
 ##export TEXMFCNF=/users/wd15/texmf/web2c
 
 if [ `uname -n` == luggage ]; then
