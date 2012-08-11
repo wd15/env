@@ -170,3 +170,5 @@ export EDITOR=emacs
 ##workon i686
 ##workon poole
 ###workon trunk-dbg
+
+source ~/.git-completion.bash
