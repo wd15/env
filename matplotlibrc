@@ -139,7 +139,7 @@ text.usetex         : True  # use latex for all text handling. The following fon
                               # matplotlib mailing list
 #text.latex.unicode : False # use "ucs" and "inputenc" LaTeX packages for handling
                             # unicode strings.
-text.latex.preamble :  \usepackage{units},\usepackage{amssymb},\usepackage[amssymb]{SIunits},\usepackage{sistyle},\usepackage{bm}
+text.latex.preamble :  \usepackage{units},\usepackage{amssymb},\usepackage[amssymb]{SIunits},\usepackage{sistyle},\usepackage{bm}, \usepackage{amsmath}
 			    # IMPROPER USE OF THIS FEATURE WILL LEAD TO LATEX FAILURES
                             # AND IS THEREFORE UNSUPPORTED. PLEASE DO NOT ASK FOR HELP
                             # IF THIS FEATURE DOES NOT DO WHAT YOU EXPECT IT TO.
