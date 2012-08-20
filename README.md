@@ -49,3 +49,12 @@ Aliases
     $ git config --global alias.st status
     $ git config --global alias.unstage 'reset HEAD --'
     $ git config --global alias.last 'log -1 HEAD'
+
+-------
+svn2git
+-------
+
+Converting from svn ignoring branches, tags and merges.
+
+    $ git svn clone --authors-file=authors-transform.txt --trunk=trunk/path/in/svn-repo --branches=branches svn-repo-url repo-from-svn.git
+    $ git clone --bare file://path/to/repo-from-svn.git repo.git
