@@ -82,8 +82,10 @@ the log from the initial clone. It might help.
 
     $ git branch -r
 
-seems to show a load of branches. Look at those weird bad graft data
-things
+seems to show a load of branches. `benchmark-older-fipy` has gone, so
+has `pykrylov`, `version-0_1`, `version-1_1`, `version-1_2`,
+`version`. Something has gone wrong with the older branches. Look at
+those weird bad graft data things
 
     $ cd ../fipy-from-svn
     $ git log -1 6cb2e2b753cc83fecd28d2b40eebf5088091e020
