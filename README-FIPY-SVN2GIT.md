@@ -2,32 +2,33 @@
 FiPy svn2git
 ============
 
-I made a number of attempts at this. Something changed during these
-attempts that removed a number of issues. I am not sure what
+I made a number of attempts at this. Something changed during one of
+these attempts that cleaned up a number of issues. I am not sure what
 changed. Maybe the order of arguments in the initial clone. When I
-tried this the first few times, there were issues with the tags and
-issues with branches with names like "ticket:XXX" due to the colon. I
-had to manually delete some of those branches in .git to make
-progress. I tried to replicate the process but couldn't. Anyway, I
-seem to have a working repository now. I did not follow all of Jon's
-instructions regrading cleaning up branches that have not got merge
-statements in the canonical form. Also not all the tags are present
-for some reason, though we an easily find them with "git log --all |
-grep tagging". Anyway the steps are as follows.
+tried cloning the first few times, there were issues with the tags and
+issues with branches with names like `ticket:XXX` due to the colon. I
+had to manually delete some of those branches in `.git` to make
+progress. I tried to replicate the process but couldn't and it ended
+up working. Anyway, I seem to have a working repository now. I did not
+follow all of Jon's instructions regrading cleaning up branches that
+have not got merge statements in the canonical form. Also not all the
+tags are present for some reason, though we an easily find them with
+`git log --all | grep tagging`. Anyway the steps are as follows.
 
-    $ git svn clone --authors-file=authors.txt --trunk=trunk --tags=tags --branches=vendor --branches=branches --branches=sandbox $FIPYROOT fipy-from-svn-with-tags
+    $ git svn clone --authors-file=authors.txt --trunk=trunk --tags=tags --branches=vendor --branches=branches --branches=sandbox $FIPYROOT fipy-from-svn
 
 The first time I attempted this it took forever for some reason to do
 with the `--tags`, the second time I made `tags` a branch and it went
 much faster. On the third attempt using the above command it no longer
 had the `tags` issues. So strange.
 
-    $ cd fipy-from-svn-with-tags
+    $ cd fipy-from-svn
     $ python guyersvngit.py
 
-I had to add the check for `None` on line 29. This may have screwed up
-two branches, but I'm not sure which ones so can't check. Jon's magic
-here. Nothing works without these step
+See <a href="guyersvngit.py">guyersvngit.py</a>. I had to add the
+check for `None` on <a href="guyersvngit.py#L29">line 29</a>. This may
+have screwed up two branches, but I'm not sure which ones so can't
+check. Jon's magic here. Nothing works without these step
 
     $ git filter-branch --tag-name-filter cat -- --all
 
