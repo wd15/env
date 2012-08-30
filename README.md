@@ -2,11 +2,12 @@
 env
 ===
 
-    $ ln -s ~/.emacs .../env/dotemacs
-    $ ln -s ~/.bashrc .../env/bashrc
+    $ ENVPATH=.../env
+    $ ln -s ~/.emacs $ENVPATH/dotemacs
+    $ ln -s ~/.bashrc $ENVPATH/bashrc
     $ sudo apt-get install pyflakes
-
- * Add .gitignore
+    $ ln -s ~/.gitignore $ENVPATH/gitignore
+    $ git config --global core.excludesfile ~/.gitignore
 
 ================                                                                               
 Working with Git                                                                               
@@ -58,3 +59,9 @@ Converting from svn ignoring branches, tags and merges.
 
     $ git svn clone --authors-file=authors-transform.txt --trunk=trunk/path/in/svn-repo --branches=branches svn-repo-url repo-from-svn.git
     $ git clone --bare file://path/to/repo-from-svn.git repo.git
+
+------------
+Pull Request
+------------
+
+    $ git request-pull master ssh://genie.nist.gov/`pwd` | mailx email@email -s "stuff"
