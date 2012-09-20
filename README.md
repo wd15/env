@@ -65,3 +65,9 @@ Pull Request
 ------------
 
     $ git request-pull master ssh://genie.nist.gov/`pwd` | mailx email@email -s "stuff"
+
+-----------------
+Setting Up Python
+-----------------
+
+http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/

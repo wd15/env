@@ -11,26 +11,21 @@
   ;; If there is more than one, they won't work right.
  )
 
-(define-key global-map "\C-l" 'goto-line)
-(define-key global-map "\C-j" 'comment-region)
-(define-key global-map "\C-o" 'uncomment-region)
-(define-key global-map "\M-/" 'hippie-expand)
 
+(when (load "flymake" t)
+         (defun flymake-pyflakes-init ()
+           (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                              'flymake-create-temp-inplace))
+              (local-file (file-relative-name
+                           temp-file
+                           (file-name-directory buffer-file-name))))
+             (list "pyflakes" (list local-file))))
 
-(when (load "flymake" t) 
-         (defun flymake-pyflakes-init () 
-           (let* ((temp-file (flymake-init-create-temp-buffer-copy 
-                              'flymake-create-temp-inplace)) 
-              (local-file (file-relative-name 
-                           temp-file 
-                           (file-name-directory buffer-file-name)))) 
-             (list "pyflakes" (list local-file)))) 
-
-         (add-to-list 'flymake-allowed-file-name-masks 
-                  '("\\.py\\'" flymake-pyflakes-init))) 
+         (add-to-list 'flymake-allowed-file-name-masks
+                  '("\\.py\\'" flymake-pyflakes-init)))
 
    (add-hook 'find-file-hook 'flymake-find-file-hook)
- 
+
 (put 'scroll-left 'disabled nil)
 (put 'set-goal-column 'disabled nil)
 
@@ -59,3 +54,54 @@
 (defun shift-left (count)
   (interactive "p")
   (shift-text (- count)))
+
+(autoload 'markdown-mode "markdown-mode.el"
+   "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+   (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+(add-to-list 'load-path "~/.emacs.d")
+
+;;(require 'python)
+
+
+(setq py-install-directory "~/.emacs.d")
+(require 'python-mode)
+(setq py-shell-name "ipython")
+
+(require 'cython-mode)
+
+;;(require 'ipython)
+
+;;(require 'anything) (require 'anything-ipython)
+;;  (when (require 'anything-show-completion nil t)
+;;   (use-anything-show-completion 'anything-ipython-complete
+;;                                   '(length initial-pattern)))
+
+(autoload 'autopair-global-mode "autopair" nil t)
+  (autopair-global-mode)
+  (add-hook 'lisp-mode-hook #'(lambda () (setq autopair-dont-activate t)))
+
+(add-hook 'python-mode-hook
+          #'(lambda () (push '(?' . ?')
+                              (getf autopair-extra-pairs :code))
+ (setq autopair-handle-action-fns
+      (list #'autopair-default-handle-action
+            #'autopair-python-triple-quote-action))))
+
+(require 'python-pep8)
+(require 'python-pylint)
+
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(define-key global-map "\C-l" 'goto-line)
+(define-key global-map "\C-j" 'comment-region)
+(define-key global-map "\C-o" 'uncomment-region)
+(define-key global-map "\M-/" 'hippie-expand)
+
+;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))
+;;(set-frame-parameter (selected-frame) 'alpha '(85 50))
+;;(add-to-list 'default-frame-alist '(alpha 85 50))
+
+;; Stop the tab weirdness
+(setq-default indent-tabs-mode nil)

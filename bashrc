@@ -83,17 +83,19 @@ if [ "$PS1" ]; then
     # alias cvs="cvs -d :ext:reida@lurch.nist.gov:/users/langer/FE/CVSoof"
 
     # set a fancy prompt.  Use ISO 6429 color codes.
-    PS1='\[\033[34m\]\h[\u]:\[\033[m\] '
+    # PS1='\[\033[34m\]\h[\u]:\[\033[m\] '
     # PS1='\033[1m\h[\u]:\033[m '
-
+    # PS1='\[\033[34m\]\h[\u]:\[\033[m\] '
+    PS1="[\\d \\t \\u@\\h:\\w] $"
+    PS1="\e[1;32m${PS1} \e[m"
     # If this is an xterm set the title to user@host:dir
-    #case $TERM in
-    #xterm*)
-    #    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-    #    ;;
-    #*)
-    #    ;;
-    #esac
+    case $TERM in
+    xterm*)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+        ;;
+    *)
+        ;;
+    esac
 
 fi
 
@@ -138,7 +140,7 @@ elif [[ -e  /usr/local/lib/python2.5/site-packages/virtualenvwrapper-2.2.2-py2.5
 then
     export VIRTUALENVWRAPPER=/usr/local/lib/python2.5/site-packages/virtualenvwrapper-2.2.2-py2.5.egg
 elif [[ -e /usr/lib/python2.5/site-packages/virtualenvwrapper-2.6.1-py2.5.egg ]]
-then 
+then
     export VIRTUALENVWRAPPER=/usr/lib/python2.5/site-packages/virtualenvwrapper-2.6.1-py2.5.egg
 else
     export VIRTUALENVWRAPPER=.
