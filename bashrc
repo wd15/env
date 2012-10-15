@@ -86,8 +86,8 @@ if [ "$PS1" ]; then
     # PS1='\[\033[34m\]\h[\u]:\[\033[m\] '
     # PS1='\033[1m\h[\u]:\033[m '
     # PS1='\[\033[34m\]\h[\u]:\[\033[m\] '
-    PS1="[\\d \\t \\u@\\h:\\w] $"
-    PS1="\e[1;32m${PS1} \e[m"
+    PS1="[\\d \\t \\u@\\h:\\w]$ "
+    PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
     # If this is an xterm set the title to user@host:dir
     case $TERM in
     xterm*)
