@@ -3,11 +3,12 @@ env
 ===
 
     $ ENVPATH=.../env
-    $ ln -s ~/.emacs $ENVPATH/dotemacs
-    $ ln -s ~/.bashrc $ENVPATH/bashrc
+    $ ln -s $ENVPATH/dotemacs ~/.emacs 
+    $ ln -s $ENVPATH/bashrc ~/.bashrc
     $ sudo apt-get install pyflakes
-    $ ln -s ~/.gitignore $ENVPATH/gitignore
+    $ ln -s $ENVPATH/gitignore ~/.gitignore
     $ git config --global core.excludesfile ~/.gitignore
+    $ ls -s $ENVPATH/bashrc_paths ~/.bash_paths
 
 ================                                                                               
 Working with Git                                                                               
