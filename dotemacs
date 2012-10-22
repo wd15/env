@@ -95,8 +95,6 @@
 ;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (define-key global-map "\C-l" 'goto-line)
-(define-key global-map "\C-j" 'comment-region)
-(define-key global-map "\C-o" 'uncomment-region)
 (define-key global-map "\M-/" 'hippie-expand)
 
 ;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))
@@ -105,3 +103,8 @@
 
 ;; Stop the tab weirdness
 (setq-default indent-tabs-mode nil)
+
+;;(define-key global-map "\C-j" 'comment-region)
+;;(define-key global-map "\C-o" 'uncomment-region)
+;;(global-set-key (kbd "C-m") 'comment-or-uncomment-region)
+(define-key global-map "\C-t" 'comment-or-uncomment-region)

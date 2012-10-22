@@ -73,11 +73,12 @@ if [ "$PS1" ]; then
     alias l='ls -CF'
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
-    alias rmi='rm -i'
-    alias cpi='cp -i'
-    alias mvi='mv -i'
+    alias rm='rm -i'
+    alias cp='cp -i'
+    alias mv='mv -i'
     alias mkdir='mkdir -p'
     alias edit='emacs -nw'
+    alias ipyn='ipython notebook --pylab=inline'
 
     # alias ssh-add='ssh-add ~/.ssh/identity ~/.ssh/id_dsa'
     # alias cvs="cvs -d :ext:reida@lurch.nist.gov:/users/langer/FE/CVSoof"
