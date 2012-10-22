@@ -3,10 +3,10 @@
     $ ENVPATH=.../env
     $ ln -s $ENVPATH/dotemacs ~/.emacs 
     $ ln -s $ENVPATH/bashrc ~/.bashrc
-
     $ ln -s $ENVPATH/gitignore ~/.gitignore
     $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
-
+    $ ln -s $ENVPATH/matploblibrc ~/.matploblib/matplotlibrc
+    
 ## Emacs
 
     $ sudo apt-get install pyflakes
@@ -60,4 +60,7 @@ Converting from svn ignoring branches, tags and merges.
     $ git request-pull master ssh://genie.nist.gov/`pwd` | mailx email@email -s "stuff"
 
 ## Setting Up Python
+
+http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
+
 
