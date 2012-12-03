@@ -43,12 +43,12 @@ The following should setup git-media to work with a local cache.
      $ mkdir $MEDIAPATH
      $ git config --global git-media.transport "local"
      $ git config --global git-media.localpath "${MEDIAPATH}"
-     $ git config –global media.auto-download false
+     $ git config --global media.auto-download false
 
 In the git-repo.
 
      $ cd .../git-repo
-     $ echo "*.media filter=media -crlf" > .gitattributes
+     $ echo "*.${MEDIAEXT} filter=media -crlf" > .gitattributes
 
 Test is
    
