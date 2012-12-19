@@ -6,29 +6,19 @@
     $ ln -s $ENVPATH/gitignore ~/.gitignore
     $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
     $ ln -s $ENVPATH/matploblibrc ~/.matploblib/matplotlibrc
-    
+    $ ln -s $ENVPATH/gitconfig ~/.gitconfig
+
 ## Emacs
 
     $ sudo apt-get install pyflakes
 
 ## Working with Git                                                                               
                                                                                                
-### First time setup                                                                               
-
-Update config
-
-    $ git config --global core.excludesfile ~/.gitignore
-    $ git config --global user.name "John Doe"
-    $ git config --global user.email johndoe@example.com
-    $ git config --global core.editor emacs
-    $ git config --global merge.tool vimdiff
-
 Use
 
     $ git config --list
 
 to check.
-
 
 ### Auto-completion
 
@@ -37,16 +27,6 @@ to check.
 
 
 and place ``source ~/.git-completion.bash`` in your ``.bashrc`` file.
-
-### Aliases
-
-    $ git config --global alias.co checkout
-    $ git config --global alias.br branch
-    $ git config --global alias.ci commit
-    $ git config --global alias.st status
-    $ git config --global alias.unstage 'reset HEAD --'
-    $ git config --global alias.last 'log -1 HEAD'
-
 
 ### svn2git
 
