@@ -1,9 +1,13 @@
 [user]
 	name = Daniel Wheeler
 	email = daniel.wheeler2@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
 [core]
 	editor = emacs
-	excludesfile = /home/wd15/.gitignore
+	excludesfile = ~/.gitignore
 [merge]
 	tool = vimdiff
 [alias]
@@ -14,3 +18,17 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\"
+
+[git-media]
+	transport = local
+	
+	# settings for local transport
+	path = /users/wd15/git/media
+	localpath = /users/wd15/git/h5
+
+
+[media]
+	auto-download = false
+[filter "media"]
+	clean = git-media filter-clean
+	smudge = git-media filter-smudge
