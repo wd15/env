@@ -52,7 +52,7 @@ fi
 # This is supposed to be set in bash-paths, and is, but for the KDM
 # log-ins, it apparently doesn't get set -- maybe it's overwritten by
 # someone?  Doing it again here means doing it twice, alas.
-LD_LIBRARY_EXTRA="/usr/site/lib:"$HOME/$arch_path/lib
+LD_LIBRARY_EXTRA="/usr/site/lib:"$HOME/$arch_path/lib:/usr/local/lib
 if [ -z "$LD_LIBRARY_PATH" ]; then
   export LD_LIBRARY_PATH=$LD_LIBRARY_EXTRA
 else
