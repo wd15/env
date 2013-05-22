@@ -108,3 +108,7 @@
 ;;(define-key global-map "\C-o" 'uncomment-region)
 ;;(global-set-key (kbd "C-m") 'comment-or-uncomment-region)
 (define-key global-map "\C-t" 'comment-or-uncomment-region)
+
+(require 'tramp)
+(setq tramp-default-method "scp")
+
