@@ -5,7 +5,7 @@ import fipy as fp
 import numpy
 import numpy as np
 import scipy
-import scipy as sp
-import pylab
-import pylab as pl
+import scipy as spy
+import matplotlib.pylot as plt
+
 
