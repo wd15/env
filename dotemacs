@@ -112,3 +112,4 @@
 (require 'tramp)
 (setq tramp-default-method "scp")
 
+(setq emerge-diff-options "--ignore-all-space")

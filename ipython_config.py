@@ -1,5 +1,17 @@
 # Configuration file for ipython.
 
+# import os
+# from IPython.core import ipapi
+# ip = ipapi.get()
+
+# def myPrompt(self):
+#     print 'test'
+#     #    return 'test'
+
+#ip.set_hook('pre_prompt_hook', myPrompt)
+#ip.set_hook('pre_run_code_hook', myPrompt)
+
+
 c = get_config()
 
 #------------------------------------------------------------------------------
@@ -81,7 +93,7 @@ c = get_config()
 # c.TerminalIPythonApp.ipython_dir = u'/users/wd15/.config/ipython'
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
+c.TerminalIPythonApp.display_banner = False
 
 # Start IPython quickly by skipping the loading of config files.
 # c.TerminalIPythonApp.quick = False
@@ -263,16 +275,18 @@ c = get_config()
 # This is the primary interface for producing IPython's prompts.
 
 # Output prompt. '\#' will be transformed to the prompt number
-# c.PromptManager.out_template = 'Out[\\#]: '
+c.PromptManager.out_template = '{_promptOut}'
 
 # Continuation prompt.
-# c.PromptManager.in2_template = '   .\\D.: '
+c.PromptManager.in2_template = '   .\\D. '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
 # c.PromptManager.justify = True
 
 # Input prompt.  '\#' will be transformed to the prompt number
 # c.PromptManager.in_template = 'In [\\#]: '
+c.PromptManager.in_template = '{_promptIn}'
+
 
 # 
 # c.PromptManager.color_scheme = 'Linux'
@@ -375,3 +389,6 @@ c = get_config()
 # This will enable completion on elements of lists, results of function calls,
 # etc., but can be unsafe because the code is actually evaluated on TAB.
 # c.IPCompleter.greedy = False
+
+
+# raw_input('stopped')

@@ -9,7 +9,7 @@
 	editor = emacs
 	excludesfile = ~/.gitignore
 [merge]
-	tool = vimdiff
+	tool = emerge
 [alias]
 	co = checkout
 	br = branch
@@ -18,7 +18,6 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\"
-
 [git-media]
 	# transport = local
 	# settings for local transport
@@ -33,3 +32,7 @@
 [filter "media"]
 	clean = git-media filter-clean
 	smudge = git-media filter-smudge
+[remote-hg]
+	hg-git-compat = false
+[mergetool "emerge"]
+	path = /home/wd15/bin/emerge-for-git
