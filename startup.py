@@ -9,7 +9,7 @@ import numpy
 import numpy as np
 import scipy
 import scipy as spy
-import matplotlib.pylot as plt
+import matplotlib.pyplot as plt
 
 
 def gitCommand(cmd, verbose=False):    
