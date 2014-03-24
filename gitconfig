@@ -5,11 +5,15 @@
 	diff = auto
 	status = auto
 	branch = auto
+[color "status"]
+        #added = yellow
+        changed = green
+        untracked = cyan
 [core]
 	editor = emacs
 	excludesfile = ~/.gitignore
 [merge]
-	tool = emerge
+	tool = meld
 [alias]
 	co = checkout
 	br = branch
@@ -36,3 +40,10 @@
 	hg-git-compat = false
 [mergetool "emerge"]
 	path = /home/wd15/bin/emerge-for-git
+[diff]
+	external = /home/wd15/git/env/diff.py
+	tool = meld
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false

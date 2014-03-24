@@ -275,17 +275,17 @@ c.TerminalIPythonApp.display_banner = False
 # This is the primary interface for producing IPython's prompts.
 
 # Output prompt. '\#' will be transformed to the prompt number
-c.PromptManager.out_template = '{_promptOut}'
+#c.PromptManager.out_template = '{_promptOut}'
 
 # Continuation prompt.
-c.PromptManager.in2_template = '   .\\D. '
+#c.PromptManager.in2_template = '   .\\D. '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
 # c.PromptManager.justify = True
 
 # Input prompt.  '\#' will be transformed to the prompt number
 # c.PromptManager.in_template = 'In [\\#]: '
-c.PromptManager.in_template = '{_promptIn}'
+#c.PromptManager.in_template = '{_promptIn}'
 
 
 # 

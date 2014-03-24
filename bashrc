@@ -65,6 +65,7 @@ if [ "$PS1" ]; then
     alias mkdir='mkdir -p'
     alias edit='emacs -nw'
     alias ipyn='ipython notebook --pylab=inline'
+    alias matlab='/usr/local/MATLAB/R2013b/bin/matlab'
 
     PS1="[\\d \\t \\u@\\h:\\w]$ "
     PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
@@ -127,6 +128,11 @@ export FIPYTRUNK=${FIPYBASE}/trunk
 
 export SVN_EDITOR='emacs -nw'
 export EDITOR=emacs
-
+export PATH=${HOME}/.cabal/bin:${PATH}
 source ~/.git-completion.bash
+
+# added by Anaconda 1.8.0 installer
+export PATH="/home/wd15/anaconda/bin:$PATH"
+export ANACONDA="/home/wd15/anaconda"
+
 
