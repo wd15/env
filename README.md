@@ -5,7 +5,7 @@
     $ ln -s $ENVPATH/bashrc ~/.bashrc
     $ ln -s $ENVPATH/gitignore ~/.gitignore
     $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
-    $ ln -s $ENVPATH/matploblibrc ~/.matploblib/matplotlibrc
+    $ ln -s $ENVPATH/matplotlibrc ~/.config/matplotlib/matplotlibrc
     $ ln -s $ENVPATH/gitconfig ~/.gitconfig
 
 ## Emacs
