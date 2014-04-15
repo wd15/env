@@ -20,13 +20,8 @@
 	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\"
 [git-media]
 	transport = local
-	# settings for local transport
 	path = /users/wd15/git/media
 	localpath = /users/wd15/git/h5
-        #transport = scp
-        #scpuser = wd15
-        #scphost = genie.nist.gov
-        #scppath = /users/wd15/git/h5
 [media]
 	auto-download = false
 [filter "media"]
