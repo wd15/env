@@ -131,8 +131,5 @@ export EDITOR=emacs
 export PATH=${HOME}/.cabal/bin:${PATH}
 source ~/.git-completion.bash
 
-# added by Anaconda 1.8.0 installer
-export PATH="/home/wd15/anaconda/bin:$PATH"
-export ANACONDA="/home/wd15/anaconda"
-
-
+export PATH="${HOME}/anaconda/bin:$PATH"
+export ANACONDA="${HOME}/anaconda"
