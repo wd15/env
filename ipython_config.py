@@ -392,3 +392,5 @@ c.PromptManager.in_template = '{_promptIn}'
 
 
 # raw_input('stopped')
+
+#c.NotebookApp.password = u'sha1:8585ed4e94b2:937b6d2f13da2a9d8d3221339f1be6aaf45c1ab1'
