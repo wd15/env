@@ -43,4 +43,8 @@ Converting from svn ignoring branches, tags and merges.
 
 http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
 
+## Ubuntu Setup
 
+### Workspace switcher
+
+http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
