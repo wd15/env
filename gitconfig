@@ -6,7 +6,6 @@
 	status = auto
 	branch = auto
 [color "status"]
-        #added = yellow
         changed = green
         untracked = cyan
 [core]
@@ -22,20 +21,6 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\"
-# [git-media]
-# 	transport = local
-# 	# settings for local transport
-# 	path = /users/wd15/git/media
-# 	localpath = /users/wd15/git/h5
-#         #transport = scp
-#         #scpuser = wd15
-#         #scphost = genie.nist.gov
-#         #scppath = /users/wd15/git/h5
-# [media]
-# 	auto-download = false
-# [filter "media"]
-# 	clean = git-media filter-clean
-# 	smudge = git-media filter-smudge
 [remote-hg]
 	hg-git-compat = false
 [mergetool "emerge"]
