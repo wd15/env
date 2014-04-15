@@ -5,11 +5,14 @@
 	diff = auto
 	status = auto
 	branch = auto
+[color "status"]
+        changed = green
+        untracked = cyan
 [core]
 	editor = emacs
 	excludesfile = ~/.gitignore
 [merge]
-	tool = emerge
+	tool = meld
 [alias]
 	co = checkout
 	br = branch
@@ -18,16 +21,16 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\"
-[git-media]
-	transport = local
-	path = /users/wd15/git/media
-	localpath = /users/wd15/git/h5
-[media]
-	auto-download = false
-[filter "media"]
-	clean = git-media filter-clean
-	smudge = git-media filter-smudge
 [remote-hg]
 	hg-git-compat = false
 [mergetool "emerge"]
 	path = /home/wd15/bin/emerge-for-git
+[diff]
+	external = /home/wd15/git/env/diff.py
+	tool = meld
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[commit]
+        template=~/git/env/commit-template

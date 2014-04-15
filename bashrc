@@ -1,18 +1,9 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files for examples
-
-# If this is a non-interactive shell, we still want to get
-# the stuff (like $PATH) in /etc/profile if we haven't already
-
-# set -x
-
 if [ "`id -gn`" = "`id -un`" -a `id -u` -gt 99 ]; then
         umask 002
 else
         umask 022
 fi
 
-# are we an interactive shell?
 if [ "$PS1" ]; then
     case $TERM in
         xterm*)
@@ -49,9 +40,6 @@ fi
 
 [ -n "$BASH_PATHS" ] || . $HOME/.bash_paths
 
-# This is supposed to be set in bash-paths, and is, but for the KDM
-# log-ins, it apparently doesn't get set -- maybe it's overwritten by
-# someone?  Doing it again here means doing it twice, alas.
 LD_LIBRARY_EXTRA="/usr/site/lib:"$HOME/$arch_path/lib:/usr/local/lib
 if [ -z "$LD_LIBRARY_PATH" ]; then
   export LD_LIBRARY_PATH=$LD_LIBRARY_EXTRA
@@ -59,7 +47,6 @@ else
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LD_LIBRARY_EXTRA
 fi
 
-# If running interactively, then:
 if [ "$PS1" ]; then
 
     # enable color support of ls and also add handy aliases
@@ -67,7 +54,6 @@ if [ "$PS1" ]; then
     eval `dircolors -b`
     alias ls='ls --color=auto'
     alias a2ps='a2ps -s1 --medium=Letter -o -'
-    alias addroot="su root -c '/usr/bin/ssh-add -c -t 12h /root/.ssh/id_rsa'"
     alias ll='ls -l'
     alias la='ls -A'
     alias l='ls -CF'
@@ -79,17 +65,11 @@ if [ "$PS1" ]; then
     alias mkdir='mkdir -p'
     alias edit='emacs -nw'
     alias ipyn='ipython notebook --pylab=inline'
+    alias matlab='/usr/local/MATLAB/R2013b/bin/matlab'
 
-    # alias ssh-add='ssh-add ~/.ssh/identity ~/.ssh/id_dsa'
-    # alias cvs="cvs -d :ext:reida@lurch.nist.gov:/users/langer/FE/CVSoof"
-
-    # set a fancy prompt.  Use ISO 6429 color codes.
-    # PS1='\[\033[34m\]\h[\u]:\[\033[m\] '
-    # PS1='\033[1m\h[\u]:\033[m '
-    # PS1='\[\033[34m\]\h[\u]:\[\033[m\] '
     PS1="[\\d \\t \\u@\\h:\\w]$ "
     PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
-    # If this is an xterm set the title to user@host:dir
+
     case $TERM in
     xterm*)
         PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
@@ -100,30 +80,15 @@ if [ "$PS1" ]; then
 
 fi
 
-## set local python paths
-
 export ARCH=`uname -m`
 export KERNEL=`uname -r`
 
-##export LATEXPATH=/users/wd15/latex
-##export TEXINPUTS=.:${HOME}/latex:
-
-##export MATPLOTLIBDATA=${HOME}/share/matplotlib
 unset MATPLOTLIBDATA
-##export FIPYROOT=svn+ssh://wd15@matforge.org/usr/local/svn-fipy-repos
 export FIPYROOT=svn+ssh://svn@code.matforge.org/fipy
 
 unset mail
 
-## reset the memory limit to half the total to be safe
-## use "limit vmemorylimit unlimited" to unset
-##if ($HOST == benson) then
-##    export HALFMEMLIMIT = `grep MemTotal /proc/meminfo | sed 's/kB/\/1.2/' | sed 's/MemTotal:/print/' | python`
-##    limit vmemoryuse $HALFMEMLIMIT kbytes
-##endif
-
-export CDPATH='.:~:~/git:/users/wd15/work/matforge/fipy:/users/wd15/work/matforge/wd15:/users/wd15/work/matforge'
-##export TEXMFCNF=/users/wd15/texmf/web2c
+export CDPATH='.:~:~/git:~/hg'
 
 if [ `uname -n` == luggage ]; then
     alias mpirun='/opt/mpich/ch-p4/bin/mpirun'
@@ -161,19 +126,9 @@ export ARCH=`uname -m`
 export FIPYBASE=${HOME}/Documents/python/fipy
 export FIPYTRUNK=${FIPYBASE}/trunk
 
-##if  [ `uname -n` == poole ]; then
-##    ##workon poole
-##else
-##    ##workon $ARCH
-##fi
-
 export SVN_EDITOR='emacs -nw'
 export EDITOR=emacs
-##workon i686-coupled
-##workon i686
-##workon poole
-###workon trunk-dbg
-
+export PATH=${HOME}/.cabal/bin:${PATH}
 source ~/.git-completion.bash
 
 export PATH="${HOME}/anaconda/bin:$PATH"

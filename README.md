@@ -5,7 +5,7 @@
     $ ln -s $ENVPATH/bashrc ~/.bashrc
     $ ln -s $ENVPATH/gitignore ~/.gitignore
     $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
-    $ ln -s $ENVPATH/matploblibrc ~/.matploblib/matplotlibrc
+    $ ln -s $ENVPATH/matplotlibrc ~/.config/matplotlib/matplotlibrc
     $ ln -s $ENVPATH/gitconfig ~/.gitconfig
 
 ## Emacs
@@ -43,4 +43,8 @@ Converting from svn ignoring branches, tags and merges.
 
 http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
 
+## Ubuntu Setup
 
+### Workspace switcher
+
+http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
