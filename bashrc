@@ -131,5 +131,4 @@ export EDITOR=emacs
 export PATH=${HOME}/.cabal/bin:${PATH}
 source ~/.git-completion.bash
 
-export PATH="${HOME}/anaconda/bin:$PATH"
-export ANACONDA="${HOME}/anaconda"
+export PATH="${HOME}/envs/default/bin:$PATH"

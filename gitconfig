@@ -6,8 +6,8 @@
 	status = auto
 	branch = auto
 [color "status"]
-        changed = green
-        untracked = cyan
+	untracked = cyan
+	changed = green
 [core]
 	editor = emacs
 	excludesfile = ~/.gitignore
@@ -24,13 +24,13 @@
 [remote-hg]
 	hg-git-compat = false
 [mergetool "emerge"]
-	path = /home/wd15/bin/emerge-for-git
-[diff]
-	external = /home/wd15/git/env/diff.py
-	tool = meld
+	path = ~/bin/emerge-for-git
+[mergetool "nbmerge"]
+        cmd = nbmerge $LOCAL $BASE $REMOTE $MERGED
 [difftool]
 	prompt = false
 [mergetool]
 	prompt = false
 [commit]
-        template=~/git/env/commit-template
+	template=~/git/env/commit-template
+
