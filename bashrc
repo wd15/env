@@ -132,3 +132,4 @@ export PATH=${HOME}/.cabal/bin:${PATH}
 source ~/.git-completion.bash
 
 export PATH="${HOME}/envs/default/bin:$PATH"
+

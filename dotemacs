@@ -117,3 +117,32 @@
 (require 'flyspell)
 (require 'git-commit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode-on)
+
+(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
+(if
+    (equal 0 (string-match "^24" emacs-version))
+    ;; it's emacs24, so use built-in theme 
+    (require 'solarized-dark-theme)
+  ;; it's NOT emacs24, so use color-theme
+  (progn
+    (require 'color-theme)
+    (color-theme-initialize)
+    (require 'color-theme-solarized)
+    (color-theme-solarized-dark)))
+
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
+(global-linum-mode t)
+
+(require 'minimap)
+
+(minimap-toggle)
+(require 'package)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+

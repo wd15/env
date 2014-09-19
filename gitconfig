@@ -24,9 +24,12 @@
 [remote-hg]
 	hg-git-compat = false
 [mergetool "emerge"]
-	path = ~/bin/emerge-for-git
+	path = /home/wd15/bin/emerge-for-git
 [mergetool "nbmerge"]
         cmd = nbmerge $LOCAL $BASE $REMOTE $MERGED
+[diff]
+	external = /home/wd15/git/env/diff.py
+	tool = meld
 [difftool]
 	prompt = false
 [mergetool]

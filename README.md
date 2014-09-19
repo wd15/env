@@ -7,6 +7,19 @@
     $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
     $ ln -s $ENVPATH/matplotlibrc ~/.config/matplotlib/matplotlibrc
     $ ln -s $ENVPATH/gitconfig ~/.gitconfig
+    $ ln -s $ENVPATH/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+    $ ln -s $ENVPATH/custom.js ~/.ipython/profile_default/static/custom/custom.js
+    $ ln -s $ENVPATH/ipython_notebook_config.py ~/.ipython/profile_default/ipython_notebook_config.py
+
+## IPython
+
+Add the spellchecker to ipython profile:
+
+http://www.damian.oquanta.info/posts/a-poor-man-spell-checker-for-the-ipython-notebook.html
+
+Add
+
+http://undefd.kaihola.fi/2013/10/25/emacs-keybindings-for-ipython-notebook-and-firefox.html
 
 ## Emacs
 
