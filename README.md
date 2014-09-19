@@ -9,6 +9,7 @@
     $ ln -s $ENVPATH/gitconfig ~/.gitconfig
     $ ln -s $ENVPATH/ipython_config.py ~/.ipython/profile_default/ipython_config.py
     $ ln -s $ENVPATH/custom.js ~/.ipython/profile_default/static/custom/custom.js
+    $ ln -s $ENVPATH/ipython_notebook_config.py ~/.ipython/profile_default/ipython_notebook_config.py
 
 ## IPython
 
