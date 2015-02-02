@@ -20,7 +20,7 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
-	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\"
+	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\" --graph
 [remote-hg]
 	hg-git-compat = false
 [mergetool "emerge"]

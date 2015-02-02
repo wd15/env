@@ -62,3 +62,8 @@ $([IPython.events]).on('app_initialized.NotebookApp', function(){
     });
 
 });
+
+/* Add a button for publishing IPython notebook as GitHub gist */
+
+IPython.load_extensions('gist');
+

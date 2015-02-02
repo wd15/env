@@ -66,6 +66,7 @@ if [ "$PS1" ]; then
     alias edit='emacs -nw'
     alias ipyn='ipython notebook --pylab=inline'
     alias matlab='/usr/local/MATLAB/R2013b/bin/matlab'
+    alias curl='curl -k'
 
     PS1="[\\d \\t \\u@\\h:\\w]$ "
     PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
@@ -88,7 +89,7 @@ export FIPYROOT=svn+ssh://svn@code.matforge.org/fipy
 
 unset mail
 
-export CDPATH='.:~:~/git:~/hg'
+export CDPATH='.:~:~/git'
 
 if [ `uname -n` == luggage ]; then
     alias mpirun='/opt/mpich/ch-p4/bin/mpirun'
@@ -133,3 +134,9 @@ source ~/.git-completion.bash
 
 export PATH="${HOME}/anaconda/envs/_build/bin:${HOME}/anaconda/bin:$PATH"
 #export ANACONDA="${HOME}/anaconda"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/wd15/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/home/wd15/google-cloud-sdk/completion.bash.inc'
