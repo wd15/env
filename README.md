@@ -58,6 +58,14 @@ http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
 
 ## Ubuntu Setup
 
+### Launcher
+
+http://askubuntu.com/questions/9865/how-can-i-configure-unitys-launcher-auto-hide-behavior/31418#31418
+
+### Launcher multiple screens
+
+http://askubuntu.com/questions/107583/how-can-i-remove-duplicate-second-unity-launcher-on-a-dual-screen-setup
+
 ### Workspace switcher
 
 http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
