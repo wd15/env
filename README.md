@@ -78,3 +78,7 @@ Install ```xsel``` and ```autocutsel```. In the "Startup Applications" tool put 
 
  * Sync firefox
  * Install keysnail (not installed with a sync)
+ * 
+## SSH keys
+
+https://help.github.com/articles/generating-ssh-keys/
