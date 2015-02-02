@@ -65,3 +65,8 @@ http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old
 ### Cut and Paste from keepass
 
 Install ```xsel``` and ```autocutsel```. In the "Startup Applications" tool put ```autocutsel -s PRIMARY``` call that "Autocutsel PRIMARY". Also add ```autocutsel``` but with no arguments and call that "Autocutsel". Both are needed.
+
+### Firefox
+
+ * Sync firefox
+ * Install keysnail (not installed with a sync)
