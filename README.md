@@ -1,12 +1,22 @@
 ## env
 
     $ ENVPATH=.../env
-    $ ln -s $ENVPATH/dotemacs ~/.emacs 
     $ ln -s $ENVPATH/bashrc ~/.bashrc
     $ ln -s $ENVPATH/gitignore ~/.gitignore
     $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
-    $ ln -s $ENVPATH/matplotlibrc ~/.config/matplotlib/matplotlibrc
     $ ln -s $ENVPATH/gitconfig ~/.gitconfig
+
+## Emacs
+
+    $ sudo apt-get install pyflakes
+    $ ln -s $ENVPATH/dotemacs ~/.emacs 
+    $ cp -rf $ENVPATH/emacs.d ~/.emacs.d
+
+## Install Anacoda
+
+and set thest paths, run matplotlib and ipython then set
+
+    $ ln -s $ENVPATH/matplotlibrc ~/.config/matplotlib/matplotlibrc
     $ ln -s $ENVPATH/ipython_config.py ~/.ipython/profile_default/ipython_config.py
     $ ln -s $ENVPATH/custom.js ~/.ipython/profile_default/static/custom/custom.js
     $ ln -s $ENVPATH/ipython_notebook_config.py ~/.ipython/profile_default/ipython_notebook_config.py
@@ -21,9 +31,6 @@ Add
 
 http://undefd.kaihola.fi/2013/10/25/emacs-keybindings-for-ipython-notebook-and-firefox.html
 
-## Emacs
-
-    $ sudo apt-get install pyflakes
 
 ## Working with Git                                                                               
                                                                                                
