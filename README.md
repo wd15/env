@@ -61,3 +61,7 @@ http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
 ### Workspace switcher
 
 http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
+
+### Cut and Paste from keepass
+
+Install ```xsel``` and ```autocutsel```. In the "Startup Applications" tool put ```autocutsel -s PRIMARY```
