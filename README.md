@@ -12,7 +12,7 @@
     $ ln -s $ENVPATH/dotemacs ~/.emacs 
     $ cp -rf $ENVPATH/emacs.d ~/.emacs.d
 
-## Install Anacoda
+## Install Anacoda and IPython
 
 and set thest paths, run matplotlib and ipython then set
 
@@ -20,8 +20,8 @@ and set thest paths, run matplotlib and ipython then set
     $ ln -s $ENVPATH/ipython_config.py ~/.ipython/profile_default/ipython_config.py
     $ ln -s $ENVPATH/custom.js ~/.ipython/profile_default/static/custom/custom.js
     $ ln -s $ENVPATH/ipython_notebook_config.py ~/.ipython/profile_default/ipython_notebook_config.py
-
-## IPython
+    $ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+    $ cp mycert.pem /home/wd15/.ipython/profile_default
 
 Add the spellchecker to ipython profile:
 
@@ -30,7 +30,6 @@ http://www.damian.oquanta.info/posts/a-poor-man-spell-checker-for-the-ipython-no
 Add
 
 http://undefd.kaihola.fi/2013/10/25/emacs-keybindings-for-ipython-notebook-and-firefox.html
-
 
 ## Working with Git                                                                               
                                                                                                

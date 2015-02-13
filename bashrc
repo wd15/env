@@ -135,8 +135,11 @@ source ~/.git-completion.bash
 export PATH="${HOME}/anaconda/envs/_build/bin:${HOME}/anaconda/bin:$PATH"
 #export ANACONDA="${HOME}/anaconda"
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/wd15/google-cloud-sdk/path.bash.inc'
+## # The next line updates PATH for the Google Cloud SDK.
+## source '/home/wd15/google-cloud-sdk/path.bash.inc'
 
-# The next line enables bash completion for gcloud.
-source '/home/wd15/google-cloud-sdk/completion.bash.inc'
+## # The next line enables bash completion for gcloud.
+## source '/home/wd15/google-cloud-sdk/completion.bash.inc'
+
+# added by Anaconda 2.1.0 installer
+export PATH="/home/wd15/anaconda/bin:$PATH"

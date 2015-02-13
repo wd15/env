@@ -136,8 +136,8 @@
     (require 'color-theme-solarized)
     (color-theme-solarized-dark)))
 
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+;; (custom-set-variables
+;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
