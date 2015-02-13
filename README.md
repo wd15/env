@@ -1,3 +1,7 @@
+## Automate
+
+The `setupenv.bash` should do a lot of the stuff below.
+
 ## env
 
     $ ENVPATH=.../env
