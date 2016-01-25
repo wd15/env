@@ -14,8 +14,6 @@
 
 (add-to-list 'load-path "~/.emacs.d")
 (setq py-install-directory "~/.emacs.d")
-(require 'jinja2-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . jinja2-mode))
 
 
 (when (load "flymake" t)

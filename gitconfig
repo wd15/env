@@ -31,4 +31,4 @@
 [mergetool]
 	prompt = false
 [commit]
-        template=~/git/wd15/env/commit-template
+        template=~/git/env/commit-template
