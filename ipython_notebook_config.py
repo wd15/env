@@ -3,7 +3,7 @@ c = get_config()
 
 
 # Notebook config
-c.NotebookApp.certfile = u'/home/wd15/.ipython/profile_default/mycert.pem'
+c.NotebookApp.certfile = u'/home/dwheeler/.ipython/profile_default/mycert.pem'
 c.NotebookApp.ip = '*'
 c.NotebookApp.open_browser = False
 c.NotebookApp.password = u'sha1:b800bdf0bcf4:0d755e297492c8b3e52a646ec745102871bde5ec'
@@ -143,3 +143,12 @@ c.IPKernelApp.pylab = 'inline'
 
 # ip.set_hook('pre_prompt_hook', myPrompt)
 # raw_input('stopped')
+
+c.TerminalIPythonApp.extensions = [
+    'line_profiler_ext',
+    'memory_profiler_ext',
+]
+c.InteractiveShellApp.extensions = [
+    'line_profiler_ext',
+    'memory_profiler_ext',
+]

@@ -11,6 +11,9 @@
   ;; If there is more than one, they won't work right.
  )
 
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (add-to-list 'load-path "~/.emacs.d")
 (setq py-install-directory "~/.emacs.d")
@@ -36,7 +39,8 @@
 (put 'set-goal-column 'disabled nil)
 
 (add-to-list 'load-path "~/.elisp")
-;;(require 'cython-mode)
+(require 'cython-mode)
+(add-to-list 'auto-mode-alist '("\\.pyx?\\'" . cython-mode))
 
 (require 'ido)
 
@@ -107,8 +111,6 @@
 ;;(set-frame-parameter (selected-frame) 'alpha '(85 50))
 ;;(add-to-list 'default-frame-alist '(alpha 85 50))
 
-;; Stop the tab weirdness
-(setq-default indent-tabs-mode nil)
 
 ;;(define-key global-map "\C-j" 'comment-region)
 ;;(define-key global-map "\C-o" 'uncomment-region)
@@ -144,11 +146,17 @@
 
 (global-linum-mode t)
 
-;;(require 'minimap)
+(fset 'insert-debug
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("import ipdb; ipdb.set_trace(" 0 "%d")) arg)))
 
-;;(minimap-toggle)
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(global-set-key (kbd "C-o") 'insert-debug)
+
+(setq-default indent-tabs-mode nil)
+
+(add-hook 'python-mode-hook 
+  (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
 

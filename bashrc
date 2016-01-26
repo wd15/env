@@ -38,9 +38,9 @@ then
 fi
 
 
-[ -n "$BASH_PATHS" ] || . $HOME/.bash_paths
+#[ -n "$BASH_PATHS" ] || . $HOME/.bash_paths
 
-LD_LIBRARY_EXTRA="/usr/site/lib:"$HOME/$arch_path/lib:/usr/local/lib
+LD_LIBRARY_EXTRA=/usr/local/lib:/usr/lib/OpenNI2/Drivers/
 if [ -z "$LD_LIBRARY_PATH" ]; then
   export LD_LIBRARY_PATH=$LD_LIBRARY_EXTRA
 else
@@ -67,7 +67,8 @@ if [ "$PS1" ]; then
     alias ipyn='ipython notebook --pylab=inline'
     alias matlab='/usr/local/MATLAB/R2013b/bin/matlab'
     alias curl='curl -k'
-
+    alias livemongodump="mongodump --host 54.172.223.4 --db nextline -u nextline_webapp -p rFNwr7ey8tEYS2h"
+    alias localmongorestore="mongorestore --host localhost --port 27017 --drop --db nextline dump/nextline"
     PS1="[\\d \\t \\u@\\h:\\w]$ "
     PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
 
@@ -89,7 +90,7 @@ export FIPYROOT=svn+ssh://svn@code.matforge.org/fipy
 
 unset mail
 
-export CDPATH='.:~:~/git'
+export CDPATH='.:~:~/git:~/git/nextline'
 
 if [ `uname -n` == luggage ]; then
     alias mpirun='/opt/mpich/ch-p4/bin/mpirun'
@@ -142,4 +143,24 @@ export PATH="${HOME}/anaconda/envs/_build/bin:${HOME}/anaconda/bin:$PATH"
 ## source '/home/wd15/google-cloud-sdk/completion.bash.inc'
 
 # added by Anaconda 2.1.0 installer
-export PATH="/home/wd15/anaconda/bin:$PATH"
+# export PATH="/home/wd15/anaconda/bin:$PATH"
+
+# added by Anaconda 2.2.0 installer
+export PATH="/home/dwheeler/anaconda/bin:$PATH"
+export PYTHONPATH="/home/dwheeler/git/nextline"
+
+## cuda
+export PATH=/usr/local/cuda-7.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-7.0/lib64:$LD_LIBRARY_PATH
+
+## engine admin script
+eval "$(_ENGINE_ADMIN_COMPLETE=source engine-admin)"
+
+## nosetests
+nosecover() {
+  pypath=$1
+  tmp=${pypath%.py}
+  pyimport="${tmp//\//.}"
+  pylint $pypath
+  nosetests --stop --with-coverage --cover-erase --cover-package=nextline_engine.$pyimport $pypath
+}
