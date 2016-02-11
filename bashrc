@@ -154,7 +154,7 @@ export PATH=/usr/local/cuda-7.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-7.0/lib64:$LD_LIBRARY_PATH
 
 ## engine admin script
-eval "$(_ENGINE_ADMIN_COMPLETE=source engine-admin)"
+## eval "$(_ENGINE_ADMIN_COMPLETE=source engine-admin)"
 
 ## nosetests
 nosecover() {
