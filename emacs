@@ -37,8 +37,8 @@
 (put 'set-goal-column 'disabled nil)
 
 (add-to-list 'load-path "~/.elisp")
-(require 'cython-mode)
-(add-to-list 'auto-mode-alist '("\\.pyx?\\'" . cython-mode))
+;;(require 'cython-mode)
+;;(add-to-list 'auto-mode-alist '("\\.pyx?\\'" . cython-mode))
 
 (require 'ido)
 
@@ -70,11 +70,11 @@
 
 ;;(add-to-list 'load-path "~/.emacs.d/")
 
-;;(require 'python)
+(require 'python)
 
 
 (setq py-install-directory "~/.emacs.d")
-(require 'python-mode)
+;;(require 'python-mode)
 (setq py-shell-name "ipython")
 
 ;;(require 'cython-mode)
@@ -137,6 +137,15 @@
     (require 'color-theme-solarized)
     (color-theme-solarized-dark)))
 
+(setq-default solarized-use-more-italic t)
+
+;;(add-hook 'python-hook
+;;  (lambda ()
+;;    (set-face-foreground 'font-lock-c-face "DarkGreen")) t t)
+
+
+;;(setq-default py-use-font-lock-comment-face-p t)
+(set-face-foreground 'font-lock-string-face "#284f28")
 ;; (custom-set-variables
 ;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
