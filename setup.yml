@@ -1,0 +1,58 @@
+---
+ - hosts: localhost
+   vars:
+     local_home: "{{ lookup('env', 'HOME') }}"
+     dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs']
+     matplotlib_path: "{{ local_home }}/.config/matplotlib"
+     ipython_path: "{{ local_home }}/.ipython/profile_default"
+     config_paths:
+       - "{{ matplotlib_path }}"
+       - "{{ ipython_path }}"
+       - "{{ ipython_path }}/static/custom"
+       - "{{ ipython_path }}"
+     config_files:
+       - 'matplotlibrc'
+       - 'ipython_config.py'
+       - 'custom.js'
+       - 'ipython_notebook_config.py'
+   tasks:
+     - name: create git directory
+       file: path={{ local_home }}/git
+     - name: install "wd15/env" repo from Github
+       git: repo=git@github.com:wd15/env.git
+            dest={{ local_home }}/git/env
+     - name: remove dot files
+       file: path={{ local_home }}/.{{ item }} state=absent
+       with_items: "{{ dot_files }}"
+     - name: link dot files
+       file: src={{ local_home }}/git/env/{{ item }} dest={{ local_home }}/.{{ item }} state=link
+       with_items: "{{ dot_files }}"
+     - name: remove config files
+       file: path={{ item.0 }}/{{ item.1 }} state=absent
+       with_together:
+         - "{{ config_paths }}"
+         - "{{ config_files }}"
+       tags:
+         remove_config_files
+     - name: make config directories
+       file: path={{ item }} state=directory
+       with_items: "{{ config_paths }}"
+     - name: link config files
+       file: src={{ local_home }}/git/env/{{ item.1 }} dest={{ item.0 }}/{{ item.1 }} state=link
+       with_together:
+         - "{{ config_paths }}"
+         - "{{ config_files }}"
+     - name: make emacs directory
+       file: path={{ local_home }}/.emacs.d
+     - name: downloand cython-mode.e.
+       get_url: url=https://raw.githubusercontent.com/cython/cython/master/Tools/cython-mode.el dest={{ local_home }}/.emacs.d/
+     - name: install python-mode.el
+       apt: name=python-mode state=present
+
+    
+       
+
+       
+         
+
+       
