@@ -1,0 +1,79 @@
+---
+ - hosts: localhost
+   vars:
+     local_home: "{{ lookup('env', 'HOME') }}"
+     env_repo: "{{ local_home }}/git/env1"
+     dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs']
+     matplotlib_path: "{{ local_home }}/.config/matplotlib"
+     ipython_path: "{{ local_home }}/.ipython/profile_default"
+     config_paths:
+       - "{{ matplotlib_path }}"
+       - "{{ ipython_path }}"
+       - "{{ ipython_path }}/static/custom"
+       - "{{ ipython_path }}"
+     config_files:
+       - 'matplotlibrc'
+       - 'ipython_config.py'
+       - 'custom.js'
+       - 'ipython_notebook_config.py'
+     lisp_dir: "{{ local_home }}/.emacs.d/lisp"
+   tasks:
+     - name: create git directory
+       file: path={{ local_home }}/git state=directory
+     - name: install "wd15/env" repo from Github
+       git: repo=git@github.com:wd15/env.git
+            dest={{ env_repo }}
+     - name: remove dot files
+       file: path={{ local_home }}/.{{ item }} state=absent
+       with_items: "{{ dot_files }}"
+     - name: link dot files
+       file: src={{ env_repo }}/{{ item }} dest={{ local_home }}/.{{ item }} state=link
+       with_items: "{{ dot_files }}"
+     - name: remove config files
+       file: path={{ item.0 }}/{{ item.1 }} state=absent
+       with_together:
+         - "{{ config_paths }}"
+         - "{{ config_files }}"
+       tags:
+         remove_config_files
+     - name: make config directories
+       file: path={{ item }} state=directory
+       with_items: "{{ config_paths }}"
+     - name: link config files
+       file: src={{ env_repo }}/{{ item.1 }} dest={{ item.0 }}/{{ item.1 }} state=link
+       with_together:
+         - "{{ config_paths }}"
+         - "{{ config_files }}"
+     - name: make emacs lisp directory
+       file: path={{ lisp_dir }} state=directory
+     - name: downloand and install lisp files for emacs
+       get_url: url={{ item }} dest={{ lisp_dir }}
+       with_items:
+        - https://raw.githubusercontent.com/cython/cython/master/Tools/cython-mode.el
+        - https://raw.githubusercontent.com/capitaomorte/autopair/master/autopair.el
+        - https://gist.githubusercontent.com/ieure/302847/raw/1b7812a0a624fcc2243bc1aac3c21d8b58c11707/python-pep8.el
+        - https://gist.githubusercontent.com/ieure/302848/raw/8534af6ff37f59aee5533e2275346e4709d5376e/python-pylint.el
+        - https://gist.githubusercontent.com/wd15/4793bde8514ef80e0a65/raw/5c652b4808132266070150c50042b8acd774c7f8/git-commit.el
+        - https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-theme.el
+        - https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el
+     - name: install apt-get modes for emacs
+       apt: name={{ item }} state=present
+       with_items:
+         - python-mode
+         - pep8
+         - dash-el
+       become: true
+     - name: git-completion.bash
+       
+       
+
+       
+
+       
+
+       
+
+       
+         
+
+       

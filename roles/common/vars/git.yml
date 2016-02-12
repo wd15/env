@@ -1,0 +1,22 @@
+---
+local_home: "{{ lookup('env', 'HOME') }}"
+env_repo: "{{ local_home }}/git/env1"
+dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs']
+matplotlib_path: "{{ local_home }}/.config/matplotlib"
+ipython_path: "{{ local_home }}/.ipython/profile_default"
+config_paths:
+  - "{{ matplotlib_path }}"
+  - "{{ ipython_path }}"
+  - "{{ ipython_path }}/static/custom"
+  - "{{ ipython_path }}"
+config_files:
+  - 'matplotlibrc'
+  - 'ipython_config.py'
+  - 'custom.js'
+  - 'ipython_notebook_config.py'
+       
+
+       
+         
+
+       
