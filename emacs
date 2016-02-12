@@ -125,7 +125,7 @@
 (require 'git-commit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode-on)
 
-(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
+;;(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
 (if
     (equal 0 (string-match "^24" emacs-version))
     ;; it's emacs24, so use built-in theme 
