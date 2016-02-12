@@ -120,6 +120,7 @@
 
 (setq emerge-diff-options "--ignore-all-space")
 
+(require 'cl)
 (require 'flyspell)
 (require 'git-commit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode-on)
