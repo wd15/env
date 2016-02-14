@@ -11,8 +11,9 @@ and run the Docker deamon
     $ sudo docker run -i -t env-test /bin/bash
 
 
-
 ## Automate
+
+    $ run ./setup.bash
 
 
 
