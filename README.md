@@ -2,8 +2,11 @@
 
 To test that this works, install Docker using ...
 
+   
+
 and run the Docker deamon
 
+    $ sudo service docker start
     $ sudo docker build -t env-test .
     $ sudo docker run -i -t env-test /bin/bash
 
