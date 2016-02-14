@@ -1,5 +1,6 @@
 ---
 local_home: "{{ lookup('env', 'HOME') }}"
+lisp_dir: "{{ local_home }}/.emacs.d/lisp"
 role_path: "{{ local_home }}/git/env/roles/common"
 dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs']
 matplotlib_path: "{{ local_home }}/.config/matplotlib"
