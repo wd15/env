@@ -1,76 +1,29 @@
-## Docker
+# Development Environment
 
-To test that this works, install Docker using ...
+Repository to generate a dev environment using Ansible.
 
-   
+## Test with Docker
 
-and run the Docker deamon
+### Install Docker
+
+https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
+### Test
+
+Clone this repository.
 
     $ sudo service docker start
     $ sudo docker build -t env-test .
     $ sudo docker run -i -t env-test /bin/bash
+    # su testuser
+    # cd /home/testuser/git/env
+    # ./setup.bash
 
+Test it
 
-## Automate
-
-    $ run ./setup.bash
-
-
-
-The `setupenv.bash` should do a lot of the stuff below.
-
-## env
-
-    $ ENVPATH=.../env
-    $ ln -s $ENVPATH/bashrc ~/.bashrc
-    $ ln -s $ENVPATH/gitignore ~/.gitignore
-    $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
-    $ ln -s $ENVPATH/gitconfig ~/.gitconfig
-
-## Emacs
-
-    $ sudo apt-get install pyflakes
-    $ ln -s $ENVPATH/dotemacs ~/.emacs 
-    $ cp -rf $ENVPATH/emacs.d ~/.emacs.d
-
-## Install Anacoda and IPython
-
-and set thest paths, run matplotlib and ipython then set
-
-    $ ln -s $ENVPATH/matplotlibrc ~/.config/matplotlib/matplotlibrc
-    $ ln -s $ENVPATH/ipython_config.py ~/.ipython/profile_default/ipython_config.py
-    $ ln -s $ENVPATH/custom.js ~/.ipython/profile_default/static/custom/custom.js
-    $ ln -s $ENVPATH/ipython_notebook_config.py ~/.ipython/profile_default/ipython_notebook_config.py
-    $ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
-    $ cp mycert.pem /home/wd15/.ipython/profile_default
-
-Add the spellchecker to ipython profile:
-
-http://www.damian.oquanta.info/posts/a-poor-man-spell-checker-for-the-ipython-notebook.html
-
-Add
-
-http://undefd.kaihola.fi/2013/10/25/emacs-keybindings-for-ipython-notebook-and-firefox.html
-
-## Working with Git                                                                               
-                                                                                               
-Use
-
-    $ git config --list
-
-to check.
-
-### Auto-completion
-
-    $ git clone git://git.kernel.org/pub/scm/git/git.git
-    $ cp git/contrib/completion/git-completion.bash ~/.git-completion.bash
-
-
-and place ``source ~/.git-completion.bash`` in your ``.bashrc`` file.
-
-## Setting Up Python
-
-http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
+    # su testuser
+    # git config --list
+    # emacs -nw
 
 ## Ubuntu Setup
 
@@ -93,8 +46,7 @@ Install ```xsel``` and ```autocutsel```. In the "Startup Applications" tool put 
 ### Firefox
 
  * Sync firefox
- * Install keysnail (not installed with a sync)
- * 
-## SSH keys
+
+### SSH keys
 
 https://help.github.com/articles/generating-ssh-keys/
