@@ -31,4 +31,4 @@
 [mergetool]
 	prompt = false
 [commit]
-        template=~/git/env/commit-template
+        template=~/.commit-template.txt
