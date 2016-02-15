@@ -24,7 +24,7 @@ https://docs.docker.com/engine/installation/linux/ubuntulinux/
 Build the environment in Docker
 
     $ sudo service docker start
-    $ sudo docker build -t env-test .
+    $ sudo docker build --no-cache -t env-test .
     $ sudo docker run -i -t env-test /bin/bash
     # su testuser
     # cd /home/testuser/git/env
