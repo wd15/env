@@ -128,7 +128,7 @@
 ;;(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
 (if
     (equal 0 (string-match "^24" emacs-version))
-    ;; it's emacs24, so use built-in theme 
+    ;; it's emacs24, so use built-in theme
     (require 'solarized-dark-theme)
   ;; it's NOT emacs24, so use color-theme
   (progn
@@ -161,10 +161,14 @@
 
 (setq-default indent-tabs-mode nil)
 
-(add-hook 'python-mode-hook 
+(add-hook 'python-mode-hook
   (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
-
+(add-hook 'yaml-mode-hook
+  '(lambda ()
+    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))

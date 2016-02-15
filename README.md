@@ -36,6 +36,14 @@ and test it
     # git config --list
     # emacs -nw
 
+## Generate environment.yml
+
+    $ conda env export -n root > environment.yml
+
+Remove references to `conda` and `anaconda` and check that it works
+
+    $ conda env update -n root --file environment.yml
+
 ## Ubuntu Setup
 
 ### Launcher

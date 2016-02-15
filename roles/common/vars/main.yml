@@ -5,6 +5,7 @@ role_path: "{{ local_home }}/git/env/roles/common"
 dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs']
 matplotlib_path: "{{ local_home }}/.config/matplotlib"
 ipython_path: "{{ local_home }}/.ipython/profile_default"
+anaconda_path: "{{ local_home}}/anaconda"
 config_paths:
   - "{{ matplotlib_path }}"
   - "{{ ipython_path }}"
@@ -15,9 +16,3 @@ config_files:
   - 'ipython_config.py'
   - 'custom.js'
   - 'ipython_notebook_config.py'
-       
-
-       
-         
-
-       

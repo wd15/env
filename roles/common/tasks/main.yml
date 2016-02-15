@@ -1,12 +1,4 @@
 ---
  - include: env.yml
  - include: emacs.yml
-
-       
-
-       
-
-       
-         
-
-       
+ - include: miniconda.yml

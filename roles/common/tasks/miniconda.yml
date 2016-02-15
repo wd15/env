@@ -1,0 +1,13 @@
+---
+ - name: get latest miniconda
+   get_url: url=https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh dest=/tmp
+ - name: install miniconda
+   shell: bash /tmp/Miniconda-latest-Linux-x86_64.sh -b -p {{ anaconda_path }}
+   args:
+     creates: "{{ anaconda_path }}"
+ - name: update conda
+   shell: conda update conda
+ - name: install anaconda
+   shell: conda install anaconda
+ - name: install new enviroment
+   shell: conda env update -n root --file {{ role_path }}/files/environment.yml
