@@ -1,7 +1,7 @@
 # Development Environment
 
 This is a repository to generate my dev environment. It uses Ansible and a Dockerfile
-to test with Docker. Currently the script set up
+to test with Docker. Currently the script sets up
 
  * the bash shell
  * emacs
