@@ -35,6 +35,7 @@ and test it
     # su testuser
     # git config --list
     # emacs -nw
+    # ipython
 
 ## Generate environment.yml
 

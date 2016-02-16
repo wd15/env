@@ -146,8 +146,7 @@ export PATH="${HOME}/anaconda/envs/_build/bin:${HOME}/anaconda/bin:$PATH"
 # export PATH="/home/wd15/anaconda/bin:$PATH"
 
 # added by Anaconda 2.2.0 installer
-export PATH="/home/dwheeler/anaconda/bin:$PATH"
-export PYTHONPATH="/home/dwheeler/git/nextline"
+export PATH=$HOME/anaconda/bin:$PATH
 
 ## cuda
 export PATH=/usr/local/cuda-7.0/bin:$PATH
