@@ -2,7 +2,7 @@
 local_home: "{{ lookup('env', 'HOME') }}"
 lisp_dir: "{{ local_home }}/.emacs.d/lisp"
 role_path: "{{ local_home }}/git/env/roles/common"
-dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs']
+dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs', 'signature.txt']
 matplotlib_path: "{{ local_home }}/.config/matplotlib"
 ipython_path: "{{ local_home }}/.ipython/profile_default"
 anaconda_path: "{{ local_home}}/anaconda"
