@@ -6,8 +6,8 @@
    args:
      creates: "{{ anaconda_path }}"
  - name: update conda
-   shell: "{{ anaconda_path }}/bin/conda" update conda
+   shell: "{{ anaconda_path }}/bin/conda update conda"
  - name: install anaconda
-   shell: "{{ anaconda_path }}/bin/conda" install anaconda
+   shell: "{{ anaconda_path }}/bin/conda install anaconda"
  - name: install new enviroment
-   shell: "{{ anaconda_path }}/bin/conda" env update -n root --file {{ role_path }}/files/environment.yml
+   shell: "{{ anaconda_path }}/bin/conda env update -n root --file {{ role_path }}/files/environment.yml"
