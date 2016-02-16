@@ -1,4 +1,7 @@
 ---
  - include: env.yml
+   tags: env
  - include: emacs.yml
+   tags: emacs
  - include: miniconda.yml
+   tags: anaconda, conda, miniconda

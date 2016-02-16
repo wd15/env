@@ -11,7 +11,13 @@ but not a Python environment yet.
 
 ## Install
 
-Run `./setup.bash` in the base directory to install the environment
+Run `./setup.bash` in the base directory to install the
+environment. To just install the basic environment without emacs or
+conda use
+
+    $ ./setup.bash --tags=env
+
+other tags are `conda` and `emacs`.
 
 ## Test with Docker
 
