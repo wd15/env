@@ -11,3 +11,7 @@
    shell: "{{ anaconda_path }}/bin/conda install anaconda"
  - name: install new enviroment
    shell: "{{ anaconda_path }}/bin/conda env update -n root --file {{ role_path }}/files/environment.yml"
+ - name: install javascript with conda
+   shell: "{{ anaconda_path }}/bin/conda install -c https://conda.anaconda.org/javascript nodejs"
+   tags: javascript
+   

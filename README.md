@@ -17,7 +17,11 @@ conda use
 
     $ ./setup.bash --tags=env
 
-other tags are `conda` and `emacs`.
+other tags include
+
+ - `conda`
+ - `emacs`
+ - `javascript`.
 
 ## Test with Docker
 
