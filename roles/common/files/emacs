@@ -141,11 +141,11 @@
 
 ;;(add-hook 'python-hook
 ;;  (lambda ()
-;;    (set-face-foreground 'font-lock-c-face "DarkGreen")) t t)
+;;    (set-face-foreground 'font-lock-c-face "LightGreen")) t t)
 
 
 ;;(setq-default py-use-font-lock-comment-face-p t)
-(set-face-foreground 'font-lock-string-face "#284f28")
+(set-face-foreground 'font-lock-string-face "LightGreen")
 ;; (custom-set-variables
 ;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
@@ -166,9 +166,15 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; yaml
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 (add-hook 'yaml-mode-hook
   '(lambda ()
     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+;; coffee script
+(require 'coffee-mode)
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(custom-set-variables '(coffee-tab-width 2))
