@@ -32,3 +32,5 @@
 	prompt = false
 [commit]
         template=~/.commit-template.txt
+[push]
+	default = matching
