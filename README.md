@@ -65,9 +65,13 @@ http://askubuntu.com/questions/9865/how-can-i-configure-unitys-launcher-auto-hid
 
 http://askubuntu.com/questions/107583/how-can-i-remove-duplicate-second-unity-launcher-on-a-dual-screen-setup
 
-### Workspace switcher
+### Window Switcher
 
 http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
+
+### Workspaces
+
+http://ubuntuhandbook.org/index.php/2013/07/change-number-of-workspaces-ubuntu/
 
 ### Cut and Paste from Keepass
 
