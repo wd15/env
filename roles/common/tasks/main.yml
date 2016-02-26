@@ -5,3 +5,5 @@
    tags: emacs
  - include: miniconda.yml
    tags: anaconda, conda, miniconda
+ - include: jupyter.yml
+   tags: jupyter

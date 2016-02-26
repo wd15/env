@@ -55,39 +55,41 @@
 
 
 
-$([IPython.events]).on('app_initialized.NotebookApp', function(){
+// $([IPython.events]).on('app_initialized.NotebookApp', function(){
 
-    require(['custom/spellchecker/main'],function(spellchecker){
-        // spellchecker.parameters('just a dummy argument to pass if necessary');
-        spellchecker.parameters('dummy');
-        console.log('Spellcheck extension loaded correctly');
-    });
+//     require(['custom/spellchecker/main'],function(spellchecker){
+//         // spellchecker.parameters('just a dummy argument to pass if necessary');
+//         spellchecker.parameters('dummy');
+//         console.log('Spellcheck extension loaded correctly');
+//     });
 
-});
+// });
 
-/* Add a button for publishing IPython notebook as GitHub gist */
+// /* Add a button for publishing IPython notebook as GitHub gist */
 
-IPython.load_extensions('gist');
+// IPython.load_extensions('gist');
 
-// register a callback when the IPython.notebook instance is created.
-$([IPython.events]).on('app_initialized.NotebookApp', function(){
-	function to(mode) {
-		// this can be either 'vim' or 'emacs'
-		var mode = mode || 'emacs';
-		// first let's apply mode to all current cells
-		function to_mode(c) { return c.code_mirror.setOption('keyMap', mode);};
-		var cells = IPython.notebook.get_cells();
-		if (cells != null) {
-			cells.map(to_mode);
-		}
-		
-		// apply the mode to future cells created
-		IPython.Cell.options_default.cm_config.keyMap = mode;
-	};
-	require(["codemirror/keymap/emacs"],
-			function (_) {
-				if (IPython.notebook != undefined) {
-					to('emacs');
-				};
-			});
-});
+// // register a callback when the IPython.notebook instance is created.
+// $([IPython.events]).on('app_initialized.NotebookApp', function(){
+// 	function to(mode) {
+// 		// this can be either 'vim' or 'emacs'
+// 		var mode = mode || 'emacs';
+// 		// first let's apply mode to all current cells
+// 		function to_mode(c) { return c.code_mirror.setOption('keyMap', mode);};
+// 		var cells = IPython.notebook.get_cells();
+// 		if (cells != null) {
+// 			cells.map(to_mode);
+// 		}
+
+// 		// apply the mode to future cells created
+// 		IPython.Cell.options_default.cm_config.keyMap = mode;
+// 	};
+// 	require(["codemirror/keymap/emacs"],
+// 			function (_) {
+// 				if (IPython.notebook != undefined) {
+// 					to('emacs');
+// 				};
+// 			});
+// });
+
+IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
