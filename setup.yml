@@ -4,3 +4,4 @@
    connection: local
    roles:
      - common
+     - {role: fipy, tags: ["fipy"]}
