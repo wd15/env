@@ -17,7 +17,7 @@
    shell: "{{ anaconda_path }}/bin/conda update conda"
 
  - name: install anaconda
-   shell: "{{ anaconda_path }}/bin/conda install anaconda"
+   shell: "{{ anaconda_path }}/bin/conda install anaconda -y"
 
  - name: install new enviroment
    shell: "{{ anaconda_path }}/bin/conda env update -n root --file {{ role_path }}/files/environment.yml"
