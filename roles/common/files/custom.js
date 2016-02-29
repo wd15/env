@@ -92,4 +92,34 @@
 // 			});
 // });
 
-IPython.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
+// The following helped to get this working
+// https://github.com/jupyter/notebook/issues/226 and
+// https://github.com/ipython/ipython/issues/8642
+
+require(['base/js/utils'],
+function(utils) {
+    utils.load_extensions('calico-spell-check', 'calico-document-tools', 'calico-cell-tools');
+});
+
+require([
+    'base/js/namespace',
+    'base/js/events',
+], function (IPython, events) {
+
+    function to(mode) {
+
+        function to_mode(c) {
+            c.code_mirror.setOption('keyMap', mode);
+            c.code_mirror.setOption('extraKeys', {"Ctrl-V" : false});  // added
+        };
+        IPython.notebook.get_cells().map(to_mode);
+        require("notebook/js/cell").Cell.options_default.cm_config.keyMap = mode;
+    };
+
+    events.on('notebook_loaded.Notebook', function () {
+        require(["codemirror/keymap/emacs"], function () {
+            to('emacs')
+            console.log('emacs.js loaded')
+        });
+    });
+});
