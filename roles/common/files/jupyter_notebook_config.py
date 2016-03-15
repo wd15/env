@@ -9,7 +9,7 @@ user_path = os.path.expanduser(u'~')
 c.NotebookApp.certfile = os.path.join(user_path, u'.ipython/profile_default/mycert.pem')
 c.NotebookApp.ip = '*'
 c.NotebookApp.open_browser = False
-c.NotebookApp.password = u'sha1:b800bdf0bcf4:0d755e297492c8b3e52a646ec745102871bde5ec'
+c.NotebookApp.password = u'sha1:367d652b1553:041a9b8cd326a953f3ecc39b0e4c8006edd2cd3c'
 
 # It is a good idea to put it on a known, fixed port
 c.NotebookApp.port = 9999
