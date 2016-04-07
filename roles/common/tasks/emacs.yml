@@ -2,7 +2,7 @@
  - name: make emacs lisp directory
    file: path={{ lisp_dir }} state=directory
  - name: download and install lisp files for emacs
-   get_url: url={{ item }} dest={{ lisp_dir }}
+   get_url: url={{ item }} dest={{ lisp_dir }} validate_certs=no
    with_items:
      - https://raw.githubusercontent.com/cython/cython/master/Tools/cython-mode.el
      - https://raw.githubusercontent.com/capitaomorte/autopair/master/autopair.el
