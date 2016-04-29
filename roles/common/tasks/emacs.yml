@@ -13,6 +13,7 @@
      - https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el
      - https://raw.githubusercontent.com/yoshiki/yaml-mode/master/yaml-mode.el
      - https://raw.githubusercontent.com/defunkt/coffee-mode/master/coffee-mode.el
+     - https://raw.github.com/danielevans/handlebars-mode/master/handlebars-mode.el
  - name: install apt-get packages for emacs
    apt: name={{ item }} state=present
    with_items:

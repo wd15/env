@@ -155,3 +155,10 @@ c.InteractiveShellApp.extensions = [
     'line_profiler_ext',
     'memory_profiler_ext',
 ]
+
+from notebook.services.config import ConfigManager
+cm = ConfigManager()
+cm.update('livereveal', {
+              'theme': 'beige',
+              'transition': 'zoom'
+})
