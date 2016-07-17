@@ -69,7 +69,7 @@ if [ "$PS1" ]; then
     alias curl='curl -k'
     alias livemongodump="mongodump --host 54.172.223.4 --db nextline -u nextline_webapp -p rFNwr7ey8tEYS2h"
     alias localmongorestore="mongorestore --host localhost --port 27017 --drop --db nextline dump/nextline"
-    PS1="[\\d \\t \\u@\\h:\\w]$ "
+    PS1="[\\d \\t \\u@\\h:\\w]\\n$ "
     PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
 
     case $TERM in
