@@ -163,3 +163,6 @@ nosecover() {
   pylint $pypath
   nosetests --stop --with-coverage --cover-erase --cover-package=nextline_engine.$pyimport $pypath
 }
+
+export NVM_DIR="/home/wd15/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
