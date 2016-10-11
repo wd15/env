@@ -4,11 +4,11 @@
    register: anaconda_dir
 
  - name: get latest miniconda
-   get_url: url=https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh dest=/tmp validate_certs=no
+   get_url: url=https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh dest=/tmp validate_certs=no
    when: anaconda_dir.stat.exists == False
 
  - name: install miniconda
-   shell: bash /tmp/Miniconda-latest-Linux-x86_64.sh -b -p {{ anaconda_path }}
+   shell: bash /tmp/Miniconda3-latest-Linux-x86_64.sh -b -p {{ anaconda_path }}
    args:
      creates: "{{ anaconda_path }}"
    when: anaconda_dir.stat.exists == False
@@ -19,9 +19,11 @@
  - name: install anaconda
    shell: "{{ anaconda_path }}/bin/conda install anaconda -y"
 
- - name: install new enviroment
-   shell: "{{ anaconda_path }}/bin/conda env update -n root --file {{ role_path }}/files/environment.yml"
+# This switches the environment to python 2.7 for some reason.
+# - name: install new enviroment
+#   shell: "{{ anaconda_path }}/bin/conda env update -n root --file {{ role_path }}/files/environment.yml"
 
- - name: install javascript with conda
-   shell: "{{ anaconda_path }}/bin/conda install -c https://conda.anaconda.org/javascript nodejs"
-   tags: javascript
+# This task seems to delete the conda executable!
+# - name: install javascript with conda
+#   shell: "{{ anaconda_path }}/bin/conda install -c https://conda.anaconda.org/javascript nodejs"
+#   tags: javascript

@@ -166,3 +166,6 @@ nosecover() {
 
 export NVM_DIR="/home/wd15/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# added by Miniconda3 4.1.11 installer
+export PATH="/home/wd15/anaconda/bin:$PATH"
