@@ -11,6 +11,7 @@
 [core]
 	editor = emacs
 	excludesfile = ~/.gitignore
+	compression = 0
 [merge]
 [alias]
 	co = checkout
@@ -34,3 +35,7 @@
         template=~/.commit-template.txt
 [push]
 	default = matching
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

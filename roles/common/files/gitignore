@@ -3,5 +3,4 @@
 \#*
 .#*
 *.egg-info
-misc/
 .ipynb_checkpoints
