@@ -185,11 +185,11 @@
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 
 
-(require 'handlebars-mode)
+;; (require 'handlebars-mode)
 
 ;; see chrome-extension://ljobjlafonikaiipfkggjbhkghgicgoh/fancy-settings/source/index.html
-(require 'edit-server)
-(edit-server-start)
+;; (require 'edit-server)
+;; (edit-server-start)
 
 ;; see https://www.emacswiki.org/emacs/Edit_with_Emacs
 (autoload 'edit-server-maybe-dehtmlize-buffer "edit-server-htmlize" "edit-server-htmlize" t)
@@ -200,3 +200,11 @@
 (require 'haskell-mode-autoloads)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
+(remove-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(remove-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
+(defun my-haskell-mode-hook ()
+   (haskell-indentation-mode -1) ;; turn off, just to be sure
+   (haskell-indent-mode 1)       ;; turn on indent-mode
+   )
