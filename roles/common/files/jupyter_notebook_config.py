@@ -159,6 +159,6 @@ c.InteractiveShellApp.extensions = [
 from notebook.services.config import ConfigManager
 cm = ConfigManager()
 cm.update('livereveal', {
-              'theme': 'beige',
+              'theme': 'solarized',
               'transition': 'zoom'
 })
