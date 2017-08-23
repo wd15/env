@@ -133,22 +133,6 @@ export EDITOR=emacs
 export PATH=${HOME}/.cabal/bin:${PATH}
 source ~/.git-completion.bash
 
-export PATH="${HOME}/anaconda/envs/_build/bin:${HOME}/anaconda/bin:$PATH"
-#export ANACONDA="${HOME}/anaconda"
-
-## # The next line updates PATH for the Google Cloud SDK.
-## source '/home/wd15/google-cloud-sdk/path.bash.inc'
-
-## # The next line enables bash completion for gcloud.
-## source '/home/wd15/google-cloud-sdk/completion.bash.inc'
-
-# added by Anaconda 2.1.0 installer
-# export PATH="/home/wd15/anaconda/bin:$PATH"
-
-# added by Anaconda 2.2.0 installer
-export PATH=$HOME/anaconda/bin:$PATH
-
-## cuda
 export PATH=/usr/local/cuda-7.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-7.0/lib64:$LD_LIBRARY_PATH
 
@@ -168,4 +152,4 @@ export NVM_DIR="/home/wd15/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # added by Miniconda3 4.1.11 installer
-export PATH="/home/wd15/anaconda/bin:$PATH"
+export PATH="/home/wd15/miniconda/bin:$PATH"
