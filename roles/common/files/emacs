@@ -208,3 +208,4 @@
    (haskell-indentation-mode -1) ;; turn off, just to be sure
    (haskell-indent-mode 1)       ;; turn on indent-mode
    )
+(put 'upcase-region 'disabled nil)

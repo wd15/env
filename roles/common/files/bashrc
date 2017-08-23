@@ -169,3 +169,6 @@ export NVM_DIR="/home/wd15/.nvm"
 
 # added by Miniconda3 4.1.11 installer
 export PATH="/home/wd15/anaconda/bin:$PATH"
+
+# MMSP stuff
+export PATH="$PATH:MMSP/utility"
