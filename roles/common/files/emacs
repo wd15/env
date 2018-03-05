@@ -16,7 +16,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (button-lock flycheck flycheck-color-mode-line flycheck-liquidhs haskell-mode popup pos-tip))))
+    (nixos-options nix-mode ## button-lock flycheck flycheck-color-mode-line flycheck-liquidhs haskell-mode popup pos-tip))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -218,3 +218,48 @@
    (haskell-indentation-mode -1) ;; turn off, just to be sure
    (haskell-indent-mode 1)       ;; turn on indent-mode
    )
+
+(put 'upcase-region 'disabled nil)
+
+(require 'package) ;; You might already have this line
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
+  (add-to-list 'package-archives (cons "melpa" url) t))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+
+(add-to-list 'load-path "~/.emacs.d/liquid-tip.el/")
+
+;; ----------------------- Configure Flycheck ------------------
+
+(require 'flycheck)
+
+;; Global Flycheck
+(global-flycheck-mode)
+
+;; Rerun check on idle and save
+(setq flycheck-check-syntax-automatically
+'(mode-enabled idle-change save))
+
+;; ----------------------- Configure LiquidHaskell -------------
+
+;; Configure flycheck-liquidhs, if you haven't already
+(add-hook 'haskell-mode-hook
+          '(lambda () (flycheck-select-checker 'haskell-liquid)))
+
+(add-hook 'literate-haskell-mode-hook
+          '(lambda () (flycheck-select-checker 'haskell-liquid)))
+
+(require 'liquid-types)
+
+;; Toggle minor mode on entering Haskell mode.
+(add-hook 'haskell-mode-hook
+          '(lambda () (liquid-types-mode)))
+(add-hook 'literate-haskell-mode-hook
+	  '(lambda () (liquid-types-mode)))
+
+(setq visible-bell 1)
