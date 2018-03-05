@@ -59,18 +59,23 @@ if [ "$PS1" ]; then
     alias curl='curl -k'
     alias livemongodump="mongodump --host 54.172.223.4 --db nextline -u nextline_webapp -p rFNwr7ey8tEYS2h"
     alias localmongorestore="mongorestore --host localhost --port 27017 --drop --db nextline dump/nextline"
-    PS1="[\\d \\t \\u@\\h:\\w]\\n$ "
+    parse_git_branch() {
+      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    }
+    PS1="[\\d \\t \\u@\\h:\\w] \[\e[1;34m\]\$(parse_git_branch)\[\e[m\]\\n\[\e[1;32m\]$\[\e[m\] "
     PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
 
     case $TERM in
     xterm*)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD} \007"'
         ;;
     *)
         ;;
     esac
 
 fi
+
+
 
 unset mail
 
@@ -96,5 +101,4 @@ export NVM_DIR="/home/wd15/.nvm"
 
 # added by Miniconda3 4.1.11 installer
 
-echo $PATH
 export PATH="/home/wd15/miniconda/bin:/usr/local/bin:$PATH"
