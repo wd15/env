@@ -67,7 +67,9 @@ http://askubuntu.com/questions/107583/how-can-i-remove-duplicate-second-unity-la
 
 ### Window Switcher
 
-http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
+New: https://askubuntu.com/questions/432022/disable-gnome-compiz-task-switcher-grouping
+
+Old: http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
 
 ### Workspaces
 
