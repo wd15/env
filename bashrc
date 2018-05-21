@@ -66,6 +66,7 @@ if [ "$PS1" ]; then
     alias edit='emacs -nw'
     alias ipyn='ipython notebook --pylab=inline'
     alias matlab='/usr/local/MATLAB/R2013b/bin/matlab'
+    alias addroot="su root -c 'stty -echo; /usr/bin/ssh-add -c -t 12h /root/.ssh/id_rsa; stty echo'"
 
     PS1="[\\d \\t \\u@\\h:\\w]$ "
     PS1="\[\e[1;32m\]${PS1}\[\e[m\]"

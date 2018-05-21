@@ -14,3 +14,4 @@ fi
 [ -r $HOME/.bash_paths ] && . $HOME/.bash_paths
 
 [ -r $HOME/.bashrc ] && . $HOME/.bashrc
+if [ -e /users/wd15/.nix-profile/etc/profile.d/nix.sh ]; then . /users/wd15/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
