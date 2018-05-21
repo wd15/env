@@ -1,0 +1,21 @@
+---
+local_home: "{{ lookup('env', 'HOME') }}"
+lisp_dir: "{{ local_home }}/.emacs.d/lisp"
+dot_files: ['bashrc', 'gitignore', 'bash_paths', 'gitconfig', 'emacs', 'signature.txt']
+matplotlib_path: "{{ local_home }}/.config/matplotlib"
+jupyter_path: "{{ local_home }}/.jupyter"
+ipython_path: "{{ local_home }}/.ipython"
+anaconda_path: "{{ local_home}}/anaconda"
+git_path: "{{ local_home }}/git"
+fipy_path: "{{ git_path }}/fipy"
+role_path: "{{ git_path }}/env/roles/common"
+config_paths:
+  - "{{ matplotlib_path }}"
+  - "{{ ipython_path }}"
+  - "{{ jupyter_path }}/custom"
+  - "{{ jupyter_path }}"
+config_files:
+  - 'matplotlibrc'
+  - 'ipython_config.py'
+  - 'custom.js'
+  - 'jupyter_notebook_config.py'

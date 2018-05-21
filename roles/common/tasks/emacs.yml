@@ -1,0 +1,24 @@
+---
+ - name: make emacs lisp directory
+   file: path={{ lisp_dir }} state=directory
+ - name: download and install lisp files for emacs
+   get_url: url={{ item }} dest={{ lisp_dir }} validate_certs=no
+   with_items:
+     - https://raw.githubusercontent.com/cython/cython/master/Tools/cython-mode.el
+     - https://raw.githubusercontent.com/capitaomorte/autopair/master/autopair.el
+     - https://gist.githubusercontent.com/ieure/302847/raw/1b7812a0a624fcc2243bc1aac3c21d8b58c11707/python-pep8.el
+     - https://gist.githubusercontent.com/ieure/302848/raw/8534af6ff37f59aee5533e2275346e4709d5376e/python-pylint.el
+     - https://gist.githubusercontent.com/wd15/4793bde8514ef80e0a65/raw/5c652b4808132266070150c50042b8acd774c7f8/git-commit.el
+     - https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized-dark-theme.el
+     - https://raw.githubusercontent.com/bbatsov/solarized-emacs/master/solarized.el
+     - https://raw.githubusercontent.com/yoshiki/yaml-mode/master/yaml-mode.el
+     - https://raw.githubusercontent.com/defunkt/coffee-mode/master/coffee-mode.el
+     - https://raw.github.com/danielevans/handlebars-mode/master/handlebars-mode.el
+ - name: install apt-get packages for emacs
+   apt: name={{ item }} state=present
+   with_items:
+     - python-mode
+     - pep8
+     - dash-el
+     - pyflakes
+   become: true

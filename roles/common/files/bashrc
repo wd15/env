@@ -1,0 +1,104 @@
+if [ "`id -gn`" = "`id -un`" -a `id -u` -gt 99 ]; then
+        umask 002
+else
+        umask 022
+fi
+
+if [ "$PS1" ]; then
+    case $TERM in
+        xterm*)
+            PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+            ;;
+        *)
+            ;;
+    esac
+    [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="[\u@\h \W]\\$ "
+
+    if [ -z "$loginsh" ]; then # We're not a login shell
+        # Not all scripts in profile.d are compatible with other shells
+        # TODO: make the scripts compatible or check the running shell by
+        # themselves.
+        if [ -n "${BASH_VERSION}${KSH_VERSION}${ZSH_VERSION}" ]; then
+            for i in /etc/profile.d/*.sh; do
+                if [ -x $i ]; then
+                    . $i
+                fi
+            done
+        fi
+    fi
+fi
+
+unset loginsh
+
+
+
+if [[ -z "$Environ_Sourced" && -f /etc/profile ]]
+then
+  source /etc/profile
+fi
+
+if [ "$PS1" ]; then
+
+    # enable color support of ls and also add handy aliases
+
+    eval `dircolors -b`
+    alias ls='ls --color=auto'
+    alias a2ps='a2ps -s1 --medium=Letter -o -'
+    alias ll='ls -l'
+    alias la='ls -A'
+    alias l='ls -CF'
+    alias dir='ls --color=auto --format=vertical'
+    alias vdir='ls --color=auto --format=long'
+    alias rm='rm -i'
+    alias cp='cp -i'
+    alias mv='mv -i'
+    alias mkdir='mkdir -p'
+    alias edit='emacs -nw'
+    alias ipyn='ipython notebook --pylab=inline'
+    alias matlab='/usr/local/MATLAB/R2013b/bin/matlab'
+    alias curl='curl -k'
+    alias livemongodump="mongodump --host 54.172.223.4 --db nextline -u nextline_webapp -p rFNwr7ey8tEYS2h"
+    alias localmongorestore="mongorestore --host localhost --port 27017 --drop --db nextline dump/nextline"
+    parse_git_branch() {
+      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    }
+    PS1="[\\d \\t \\u@\\h:\\w] \[\e[1;34m\]\$(parse_git_branch)\[\e[m\]\\n\[\e[1;32m\]$\[\e[m\] "
+    PS1="\[\e[1;32m\]${PS1}\[\e[m\]"
+
+    case $TERM in
+    xterm*)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD} \007"'
+        ;;
+    *)
+        ;;
+    esac
+
+fi
+
+
+
+unset mail
+
+source /etc/bash_completion
+
+unset PYTHONPATH
+
+export EDITOR=emacs
+
+source ~/.git-completion.bash
+
+## nosetests
+nosecover() {
+  pypath=$1
+  tmp=${pypath%.py}
+  pyimport="${tmp//\//.}"
+  pylint $pypath
+  nosetests --stop --with-coverage --cover-erase --cover-package=nextline_engine.$pyimport $pypath
+}
+
+export NVM_DIR="/home/wd15/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# added by Miniconda3 4.1.11 installer
+
+export PATH="/home/wd15/miniconda/bin:/usr/local/bin:$PATH"

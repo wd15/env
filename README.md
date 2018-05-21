@@ -1,63 +1,88 @@
-## env
+# Development Environment
 
-    $ ENVPATH=.../env
-    $ ln -s $ENVPATH/dotemacs ~/.emacs 
-    $ ln -s $ENVPATH/bashrc ~/.bashrc
-    $ ln -s $ENVPATH/gitignore ~/.gitignore
-    $ ln -s $ENVPATH/bashrc_paths ~/.bash_paths
-    $ ln -s $ENVPATH/matplotlibrc ~/.config/matplotlib/matplotlibrc
-    $ ln -s $ENVPATH/gitconfig ~/.gitconfig
-    $ ln -s $ENVPATH/ipython_config.py ~/.ipython/profile_default/ipython_config.py
-    $ ln -s $ENVPATH/custom.js ~/.ipython/profile_default/static/custom/custom.js
-    $ ln -s $ENVPATH/ipython_notebook_config.py ~/.ipython/profile_default/ipython_notebook_config.py
+This is a repository to generate my dev environment. It uses Ansible and a Dockerfile
+to test with Docker. Currently the script sets up
 
-## IPython
+ * the bash shell
+ * emacs
+ * git
 
-Add the spellchecker to ipython profile:
+but not a Python environment yet.
 
-http://www.damian.oquanta.info/posts/a-poor-man-spell-checker-for-the-ipython-notebook.html
+## Install
 
-Add
+Run `./setup.bash` in the base directory to install the
+environment. To just install the basic environment without emacs or
+conda use
 
-http://undefd.kaihola.fi/2013/10/25/emacs-keybindings-for-ipython-notebook-and-firefox.html
+    $ ./setup.bash --tags=env
 
-## Emacs
+other tags include
 
-    $ sudo apt-get install pyflakes
+ - `conda`
+ - `emacs`
+ - `javascript`.
 
-## Working with Git                                                                               
-                                                                                               
-Use
+## Test with Docker
 
-    $ git config --list
+### Install Docker
 
-to check.
+https://docs.docker.com/engine/installation/linux/ubuntulinux/
 
-### Auto-completion
+### Test
 
-    $ git clone git://git.kernel.org/pub/scm/git/git.git
-    $ cp git/contrib/completion/git-completion.bash ~/.git-completion.bash
+Build the environment in Docker
 
+    $ sudo service docker start
+    $ sudo docker build --no-cache -t env-test .
+    $ sudo docker run -i -t env-test /bin/bash
+    # su testuser
+    # cd /home/testuser/git/env
+    # ./setup.bash
 
-and place ``source ~/.git-completion.bash`` in your ``.bashrc`` file.
+and test it
 
-### svn2git
+    # su testuser
+    # git config --list
+    # emacs -nw
+    # ipython
 
-Converting from svn ignoring branches, tags and merges.
+## Generate environment.yml
 
-    $ git svn clone --authors-file=authors-transform.txt --trunk=trunk/path/in/svn-repo --branches=branches svn-repo-url repo-from-svn.git
-    $ git clone --bare file://path/to/repo-from-svn.git repo.git
+    $ conda env export -n root > environment.yml
 
-### Pull Request
+Remove references to `conda` and `anaconda` and check that it works
 
-    $ git request-pull master ssh://genie.nist.gov/`pwd` | mailx email@email -s "stuff"
-
-## Setting Up Python
-
-http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
+    $ conda env update -n root --file environment.yml
 
 ## Ubuntu Setup
 
-### Workspace switcher
+### Launcher
 
-http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
+http://askubuntu.com/questions/9865/how-can-i-configure-unitys-launcher-auto-hide-behavior/31418#31418
+
+### Launcher multiple screens
+
+http://askubuntu.com/questions/107583/how-can-i-remove-duplicate-second-unity-launcher-on-a-dual-screen-setup
+
+### Window Switcher
+
+New: https://askubuntu.com/questions/432022/disable-gnome-compiz-task-switcher-grouping
+
+Old: http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-to-old-style/
+
+### Workspaces
+
+http://ubuntuhandbook.org/index.php/2013/07/change-number-of-workspaces-ubuntu/
+
+### Cut and Paste from Keepass
+
+Install ```xsel``` and ```autocutsel```. In the "Startup Applications"
+tool put ```autocutsel -s PRIMARY``` call that "Autocutsel
+PRIMARY". Also add ```autocutsel``` but with no arguments and call
+that "Autocutsel". Both are needed.
+
+### Other
+
+ * Sync Firefox
+ * SSH keys: https://help.github.com/articles/generating-ssh-keys/

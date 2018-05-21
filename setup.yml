@@ -1,0 +1,7 @@
+---
+ - name: playbook for local environment setup
+   hosts: local
+   connection: local
+   roles:
+     - common
+     - {role: fipy, tags: ["fipy"]}

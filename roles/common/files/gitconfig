@@ -5,14 +5,16 @@
 	diff = auto
 	status = auto
 	branch = auto
+	ui = auto
 [color "status"]
         changed = green
         untracked = cyan
 [core]
-	editor = emacs
+	editor = emacs -nw
 	excludesfile = ~/.gitignore
+	compression = 0
+	autocrlf = input
 [merge]
-	tool = meld
 [alias]
 	co = checkout
 	br = branch
@@ -20,19 +22,22 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
-	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\"
+	lg = log --oneline -10 --abbrev=12 --format=\"%C(yellow)%h %Creset%s\" --graph
 [remote-hg]
 	hg-git-compat = false
 [mergetool "emerge"]
 	path = /home/wd15/bin/emerge-for-git
 [mergetool "nbmerge"]
         cmd = nbmerge $LOCAL $BASE $REMOTE $MERGED
-[diff]
-	external = /home/wd15/git/env/diff.py
-	tool = meld
 [difftool]
 	prompt = false
 [mergetool]
 	prompt = false
 [commit]
-        template=~/git/env/commit-template
+        template=~/.commit-template.txt
+[push]
+	default = matching
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

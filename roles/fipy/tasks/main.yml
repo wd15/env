@@ -1,0 +1,27 @@
+---
+  - name: install fipy requirements
+    shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy==1.9 scipy pip gmsh"
+
+  - name: install more fipy requirements
+    shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy==1.9 pysparse openmpi trilinos mpi4py"
+
+  - name: install scikit-fmm
+    pip:
+      name: scikit-fmm
+      executable: "{{ anaconda_path }}/bin/pip"
+
+  - name: check if fipy is installed
+    stat: path={{ fipy_path }}
+    register: fipy_dir
+
+  - name: clone fipy
+    git:
+      repo: https://github.com/usnistgov/fipy.git
+      dest: "{{ fipy_path }}"
+      version: develop
+    when: fipy_dir.stat.exists == False
+
+  - name: install fipy for development
+    command: "{{ anaconda_path }}/bin/python setup.py develop"
+    args:
+      chdir: "{{ fipy_path }}"

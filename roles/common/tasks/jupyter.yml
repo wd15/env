@@ -1,0 +1,13 @@
+---
+ - name: install jupyter calico extensions
+   command: "{{ anaconda_path }}/bin/ipython install-nbextension --user {{ item }}"
+   with_items:
+     - https://bitbucket.org/ipre/calico/downloads/calico-spell-check-1.0.zip
+     - https://bitbucket.org/ipre/calico/downloads/calico-document-tools-1.0.zip
+     - https://bitbucket.org/ipre/calico/downloads/calico-cell-tools-1.0.zip
+
+ - name: enable jupyter extensions
+   command: "{{ anaconda_path }}/bin/jupyter nbextension enable {{ item }}"
+   with_items:
+     - calico-cell-tools
+     - calico-spell-check
