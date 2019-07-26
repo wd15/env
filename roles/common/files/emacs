@@ -16,7 +16,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (nixos-options nix-mode ## button-lock flycheck flycheck-color-mode-line flycheck-liquidhs haskell-mode popup pos-tip))))
+    (nix-mode nixos-options ## button-lock flycheck flycheck-color-mode-line flycheck-liquidhs haskell-mode popup pos-tip))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -207,7 +207,7 @@
 (add-hook 'edit-server-start-hook 'edit-server-maybe-dehtmlize-buffer)
 (add-hook 'edit-server-done-hook  'edit-server-maybe-htmlize-buffer)
 
-(require 'haskell-mode-autoloads)
+;; (require 'haskell-mode-autoloads)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
@@ -263,3 +263,29 @@
 	  '(lambda () (liquid-types-mode)))
 
 (setq visible-bell 1)
+
+(eval-after-load 'nix-mode
+  (add-hook 'nix-mode-hook
+    (lambda ()
+      (setq-local indent-line-function #'indent-relative))))
+
+
+;; (setq mode-require-final-newline t)
+(setq require-final-newline t)
+
+(setq ring-bell-function 'ignore)
+
+;; (setq visible-bell t)
+
+;; (setq lexical-binding t
+;;       visible-bell nil
+;;       ring-bell-function 'asc:flash-background)
+;; (defun asc:flash-background ()
+;;   (let ((fg (face-foreground 'default))
+;; 	(bg (face-background 'default)))
+;;     (set-face-background 'default "DodgerBlue")
+;;     (set-face-foreground 'default "black")
+;;     (run-with-idle-timer
+;;      1 nil (lambda ()
+;; 	     (set-face-background 'default bg)
+;; 	     (set-face-foreground 'default fg)))))
