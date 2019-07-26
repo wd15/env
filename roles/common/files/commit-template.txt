@@ -2,12 +2,13 @@
 
 
 # Header, 50 characters or less
+# <type>[optional scope]: <description>
 #
-# Links to tickets, fixes etc
+# [Links to tickets, fixes etc]
 #
-# Main Message
+# [optional body]
 #
-# List of other changes
+# [optional footer]
 #
 # Answer the following questions:
 #
@@ -16,3 +17,5 @@
 #   * How does it address the issue?
 #
 #   * What side effects does this change have?
+#
+# See https://www.conventionalcommits.org
