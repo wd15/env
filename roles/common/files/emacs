@@ -6,17 +6,22 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+(setq package-enable-at-startup nil) (package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
+ '(custom-safe-themes
+   (quote
+    ("2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(frame-background-mode (quote dark))
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (nix-mode nixos-options ## button-lock flycheck flycheck-color-mode-line flycheck-liquidhs haskell-mode popup pos-tip))))
+    (solarized-theme nix-mode nixos-options ## button-lock flycheck flycheck-color-mode-line flycheck-liquidhs haskell-mode popup pos-tip))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -31,6 +36,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (setq py-install-directory "~/.emacs.d")
 
+(load-theme 'solarized-dark t)
 
 (when (load "flymake" t)
          (defun flymake-pyflakes-init ()
@@ -138,9 +144,7 @@
 (require 'git-commit)
 (add-hook 'git-commit-mode-hook 'flyspell-mode-on)
 
-(add-to-list 'custom-theme-load-path "~/git/emacs-color-theme-solarized")
-
-(load-theme 'solarized t)
+;; (add-to-list 'custom-theme-load-path "~/git/emacs-color-theme-solarized")
 
 ;; (if
 ;;     (equal 0 (string-match "^24" emacs-version))
@@ -289,3 +293,6 @@
 ;;      1 nil (lambda ()
 ;; 	     (set-face-background 'default bg)
 ;; 	     (set-face-foreground 'default fg)))))
+(put 'downcase-region 'disabled nil)
+
+(add-hook 'after-init-hook (lambda () (load-theme 'solarized-dark)))
