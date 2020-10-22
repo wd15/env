@@ -75,6 +75,10 @@ Old: http://www.randomhacks.co.uk/how-change-ubuntu-unity-window-switcher-back-t
 
 http://ubuntuhandbook.org/index.php/2013/07/change-number-of-workspaces-ubuntu/
 
+Workspaces spanning both screens
+
+https://askubuntu.com/questions/1059479/dual-monitor-workspaces-in-ubuntu-18-04
+
 ### Cut and Paste from Keepass
 
 Install ```xsel``` and ```autocutsel```. In the "Startup Applications"
